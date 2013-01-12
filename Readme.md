@@ -1,7 +1,6 @@
-###Cocker 
+###Cocker - WIP
 [![build status](https://travis-ci.org/rootslab/cocker.png?branch=master)](https://travis-ci.org/rootslab/cocker)
 > A socket module with re-connection logic.
-> WIP
 ###Install
 ```bash
 $ npm install cocker [-g]
