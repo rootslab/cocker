@@ -1,0 +1,19 @@
+{
+    "name" : "cocker"
+  , "version" : "0.0.1"
+  , "description" : "Cocker, a socket module with reconnection-logic"
+  , "homepage" : "https://github.com/rootslab/cocker"
+  , "repository" : {
+        "type" : "git"
+        ,"url" : "git://github.com/rootslab/cocker.git"
+    }
+  , "keywords" : [ "socket", "net", "cocker", "connection" ]
+  , "tags": [ "socket", "connection", ""cocker", "net" ]
+  , "author" : "Guglielmo Ferri <44gatti@gmail.com>"
+  , "dependencies" : {}
+  , "main": "index"
+  , "engines" : { "node" : ">=0.4.x" }
+  , "scripts" : {
+        "test" : "bash test/run.sh"
+  }
+}
