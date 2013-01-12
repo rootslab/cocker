@@ -8,7 +8,7 @@
         ,"url" : "git://github.com/rootslab/cocker.git"
     }
   , "keywords" : [ "socket", "net", "cocker", "connection" ]
-  , "tags": [ "socket", "connection", ""cocker", "net" ]
+  , "tags": [ "socket", "connection", "cocker", "net" ]
   , "author" : "Guglielmo Ferri <44gatti@gmail.com>"
   , "dependencies" : {}
   , "main": "index"
