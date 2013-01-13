@@ -1,4 +1,4 @@
-###Cocker - WIP
+###Cocker
 [![build status](https://travis-ci.org/rootslab/cocker.png?branch=master)](https://travis-ci.org/rootslab/cocker)
 > A socket module with re-connection logic.
 ###Install
