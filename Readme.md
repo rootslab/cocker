@@ -7,6 +7,14 @@
 ```bash
 $ npm install cocker [-g]
 ```
+
+> __require__:
+
+```javascript
+var Cocker  = require( 'cocker' );
+```
+
+
 ###Run Tests - WIP
 
 ```bash
