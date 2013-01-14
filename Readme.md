@@ -3,14 +3,15 @@
 > A socket module with re-connection logic.
 
 ###Install
+
 ```bash
 $ npm install cocker [-g]
 ```
 ###Run Tests - WIP
 
 ```bash
-$cd cocker/
-$npm test
+$ cd cocker/
+$ npm test
 ```
 
 ###Constructor
