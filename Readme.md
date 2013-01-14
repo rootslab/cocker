@@ -6,7 +6,7 @@
 ```bash
 $ npm install cocker [-g]
 ```
-###Run Tests
+###Run Tests - WIP
 
 ```javascript
 $cd train/
