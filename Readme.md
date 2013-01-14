@@ -26,15 +26,66 @@ new Cocker( [ Object obj ] )
 
 ####Options
 
+> Cocker supports all net.Socket options in a unique configuration object:
+
 ```javascript
+    // default options are listed
+    var options = {
+        port : 6379,
+        host : 'localhost',
+        // 'ascii', 'utf8', 'utf16le' ('ucs2'), 'ascii', or 'hex'.
+        encoding : null,
+        // false, or initialDelay in ms
+        keepAlive : false,
+        // millis to emit timeout event
+        timeout : 2000,
+        /*
+         * noDelay, it defaults to false.
+         * true for disabling the Nagle algorithm 
+         * ( no TCP data buffering for socket.write )
+         */
+        noDelay : false,
+        // unix socket domain file descriptor - path
+        fd : undefined,
+        // 'tcp4', 'tcp6', or 'unix'
+        type : null,
+        /*
+         * By setting allowHalfOpen = true, the socket will not
+         * automatically end()s its side, allowing the user to write
+         * arbitrary amounts of data, with the caveat that the user is
+         * required to end() his side now.
+         */
+        allowHalfOpen : false,
+        
+        // Cocker reconnection options
+        // logging to console
+        debug : false
+        // try 3 times before quitting
+        attempts : 3,
+        // millis, default to 1 sec
+        retryInterval : 1000,
+        // interval between retries is calculated also with this value
+        retryFactor : goldenRatio,
+    };
 ```
 
 ###Properties
 
+> All the properties from net.Socket module are inherited.
+
+> Only a property to hold initial config option is added:
+
 ```javascript
+Cocker.options = {
+    ...
+}
 ```
 
 ###Methods
+
+> All the methods from net.Socket module are inherited.
+
+> Cocker methods:
 
 ```javascript
 // connect optionally with a config object, like for net.Socket constructor.
@@ -44,7 +95,7 @@ Cocker#run( [ Object opt ] ) : null
 Cocker#send( Buffer data || String msg ) : Boolean
 
 // end the connection
-Cocker.bye() : null
+Cocker#bye() : null
 
 // emit an event, if debug was on , it logs event to console
 Cocker#lemit( String event, arg1, arg2, .., argN ) : null
