@@ -27,7 +27,6 @@ $ npm test
 > Create an instance. 
 
 ```javascript
-var Cocker  = require( 'cocker' );
 Cocker( [ Object obj ] )
 // or
 new Cocker( [ Object obj ] )
