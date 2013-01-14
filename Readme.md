@@ -91,8 +91,8 @@ Cocker.options = {
 // connect optionally with a config object, like for net.Socket constructor.
 Cocker#run( [ Object opt ] ) : null
 
-// write to socket
-Cocker#send( Buffer data || String msg ) : Boolean
+// write to socket, encoding defaults to 'utf8'
+Cocker#send( Buffer data || String msg [ , String enc [, Function cback ] ] ) : Boolean
 
 // end the connection
 Cocker#bye() : null
@@ -121,6 +121,7 @@ Cocker#lemit( String evt, arg1, arg2, .., argN ) : null
  * commands are not written to socket, but buffered in memory
  * ( the socket connection is slow or not fully established )
  * returns -1 if bufferSize is undefined.
+ * 'drain' will be emitted when the buffer is again free.
  */
 'slowdown' : function ( String readyState, Number bufferSize ) {}
 
