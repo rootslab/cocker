@@ -81,7 +81,8 @@ new Cocker( [ Object obj ] )
 
 > All the properties from net.Socket module are inherited.
 
-> then also :
+> also :
+
 ```javascript
 // a property that holds the initial config object:
 Cocker.options : Object
@@ -89,7 +90,7 @@ Cocker.options : Object
 // current number of connection attempts
 Cocker.attempts : Number
 
-// a flag, also useful to manually disable/re-enable reconnection-loop
+// a flag, also useful to manually disable/re-enable/check reconnection-loop
 Cocker.lost : Boolean
 ```
 
