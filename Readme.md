@@ -98,7 +98,7 @@ Cocker#send( Buffer data || String msg ) : Boolean
 Cocker#bye() : null
 
 // emit an event, if debug was on , it logs event to console
-Cocker#lemit( String event, arg1, arg2, .., argN ) : null
+Cocker#lemit( String evt, arg1, arg2, .., argN ) : null
 ```
 
 ###Events
@@ -115,14 +115,14 @@ Cocker#lemit( String event, arg1, arg2, .., argN ) : null
 'offline' : function ( Number timestamp ) {}
 
 // connection is definitively lost ( after opt.attempts times )
-'lost' : function ( timestamp ) {}
+'lost' : function ( Number timestamp ) {}
 
 /*
  * commands are not written to socket, but buffered in memory
  * ( the socket connection is slow or not fully established )
  * returns -1 if bufferSize is undefined.
  */
-'slowdown' : function ( readyState, bufferSize ) {}
+'slowdown' : function ( String readyState, Number bufferSize ) {}
 
 // informational event for logging
 'info' : function ( String msg ) {}
@@ -134,14 +134,14 @@ Cocker#lemit( String event, arg1, arg2, .., argN ) : null
 'error' : function ( Error err ) {}
 
 // signal socket timeout
-'timeout' : function ( timestamp ) {}
+'timeout' : function ( Number timestamp ) {}
 
 // data received
-'data' : function ( data ) {}
+'data' : function ( Buffer data ) {}
 
 // other events for net.Socket
 
 'connect' : function () {}
 
-'close' : function ( hadError ) {}
+'close' : function ( Boolean hadError ) {}
 ```
