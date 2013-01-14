@@ -8,8 +8,8 @@ $ npm install cocker [-g]
 ```
 ###Run Tests - WIP
 
-```javascript
-$cd train/
+```bash
+$cd cocker/
 $npm test
 ```
 
