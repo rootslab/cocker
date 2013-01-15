@@ -73,7 +73,7 @@ new Cocker( [ Object obj ] )
         // millis, default to 1 sec
         retryInterval : 1000,
         // interval between retries is calculated also with this value
-        retryFactor : goldenRatio,
+        retryFactor : goldenRatio
     };
 ```
 
@@ -116,6 +116,10 @@ Cocker#bark( String evt, arg1, arg2, .., argN ) : null
 
 ###Events
 
+> All the events from net.Socket module are inherited.
+
+> Cocker events :
+
 ```javascript
 
 // connection is established ( on 'connect' event )
@@ -144,18 +148,24 @@ Cocker#bark( String evt, arg1, arg2, .., argN ) : null
 // warning event for logging
 'warning' : function ( String  msg ) {}
 
-// error
-'error' : function ( Error err ) {}
-
 // signal socket timeout
 'timeout' : function ( Number timestamp ) {}
+```
 
-// data received
-'data' : function ( Buffer data ) {}
+> other events from net.Socket:
 
-// other events for net.Socket
+```javascript
+
 
 'connect' : function () {}
 
 'close' : function ( Boolean hadError ) {}
+
+// data received
+'data' : function ( Buffer data ) {}
+
+'drain' : function ( Boolean hadError ) {}
+
+'error' : function ( Error err ) {}
+
 ```
