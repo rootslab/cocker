@@ -156,7 +156,6 @@ Cocker#bark( String evt, arg1, arg2, .., argN ) : null
 
 ```javascript
 
-
 'connect' : function () {}
 
 'close' : function ( Boolean hadError ) {}
