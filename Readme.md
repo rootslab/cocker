@@ -72,8 +72,8 @@ new Cocker( [ Object obj ] )
         attempts : 3,
         // millis, default to 1 sec
         retryInterval : 1000,
-        // interval between retries is calculated also with this value
-        retryFactor : goldenRatio
+        // interval between = retryInterval * Math.pow( attempt, retryFactor )
+        retryFactor : ( Math.sqrt( 5 ) + 1 ) / 2
     };
 ```
 
@@ -155,6 +155,7 @@ Cocker#bark( String evt, arg1, arg2, .., argN ) : null
 > other events from net.Socket:
 
 ```javascript
+
 
 'connect' : function () {}
 
