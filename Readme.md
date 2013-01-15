@@ -111,7 +111,7 @@ Cocker#send( Buffer data || String msg [ , String enc [, Function cback ] ] ) : 
 Cocker#bye() : null
 
 // emit an event, if debug was on , it logs event to console
-Cocker#lemit( String evt, arg1, arg2, .., argN ) : null
+Cocker#bark( String evt, arg1, arg2, .., argN ) : null
 ```
 
 ###Events
