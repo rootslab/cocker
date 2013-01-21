@@ -1,7 +1,9 @@
-var Cocker = require('../'),
+var log = console.log,
+    assert = require( 'assert' ),
+    Cocker = require('../'),
     opt = {
         debug : !!true,
-        // host : 'locakhost',
+        // host : 'localhost',
         // port ; 6379,
         attempts : 3
     }

@@ -72,7 +72,7 @@ new Cocker( [ Object obj ] )
         attempts : 3,
         // millis, default to 1 sec
         retryInterval : 1000,
-        // interval between = retryInterval * Math.pow( attempt, retryFactor )
+        // interval between attempts = retryInterval * Math.pow( attempt, retryFactor )
         retryFactor : ( Math.sqrt( 5 ) + 1 ) / 2
     };
 ```
