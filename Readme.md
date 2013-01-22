@@ -27,9 +27,9 @@ $ npm test
 > Create an instance. 
 
 ```javascript
-Cocker( [ Object obj ] )
+Cocker( [ Object opt ] )
 // or
-new Cocker( [ Object obj ] )
+new Cocker( [ Object opt ] )
 ```
 
 ####Options
