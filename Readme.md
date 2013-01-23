@@ -14,7 +14,6 @@ $ npm install cocker [-g]
 var Cocker  = require( 'cocker' );
 ```
 
-
 ###Run Tests - WIP
 
 ```bash
@@ -24,7 +23,7 @@ $ npm test
 
 ###Constructor
 
-> Create an instance. 
+> Create an instance.
 
 ```javascript
 Cocker( [ Object opt ] )
@@ -108,7 +107,7 @@ Cocker#run( [ Object opt ] ) : null
 Cocker#send( Buffer data || String msg [ , String enc [, Function cback ] ] ) : Boolean
 
 // end the connection
-Cocker#bye() : null
+Cocker#bye( Buffer data || String msg, String enc ) : null
 
 // emit an event, if debug was on , it logs event to console
 Cocker#bark( String evt, arg1, arg2, .., argN ) : null
