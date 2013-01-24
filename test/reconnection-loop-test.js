@@ -3,7 +3,7 @@ var log = console.log,
     net = require( 'net' ),
     Cocker = require('../'),
     opt = {
-        debug : !true,
+        debug : !!true,
         // host : 'localhost',
         port : 50000,
         attempts : 3
@@ -37,18 +37,17 @@ var log = console.log,
     },
     onceLost = function () {
         log( '- connection was lost.' );
-        log( '- re-enabling server.' );
-        server.listen( opt.port );
-        stopTest = true;
         setTimeout( function () {
+            log( '- re-enabling server.' );
+            server.listen( opt.port );
            ck.run();
         }, secs * 1000 );
     },
     onceOnline = function () {
-        log( '- connection was successfully established.' );
         ck.on( 'online', onOnline );
-        log( '- disconnect within %ss without disabling reconnection-loop.', secs );
+        log( '- connection was successfully established.' );
         setTimeout( function () {
+            log( '- disconnect within %ss without disabling reconnection-loop.', secs );
             ck.end();
         }, secs * 1000 );
     };
