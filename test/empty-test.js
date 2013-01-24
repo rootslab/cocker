@@ -4,10 +4,10 @@ var log = console.log,
     opt = {
         debug : !!true,
         // host : 'localhost',
-        // port ; 6379,
+        port : 50000,
         attempts : 3
     }
-    ck = Cocker();
+    ck = Cocker( opt );
 
 ck.on( 'online', function ( address, timestamp ) {
     // connection is established ( on 'connect' event )
@@ -22,6 +22,10 @@ ck.on( 'offline', function ( timestamp ) {
 
 ck.on( 'lost', function ( timestamp ) {
     // connection is definitively lost ( after opt.attempts times )
+} );
+
+ck.on( 'attempt', function ( k, timestamp ) {
+    // k is the number of the current attempt
 } );
 
 ck.on( 'slowdown', function ( readyState, bufferSize ) {
@@ -65,5 +69,7 @@ ck.on( 'connect', function () {
 ck.on( 'close', function ( hadError ) {
 } );
 
+ck.on( 'drain', function ( hadError ) {
+} );
 
-// c.run();
+// ck.run();

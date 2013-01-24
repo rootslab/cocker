@@ -130,6 +130,9 @@ Cocker#bark( String evt, arg1, arg2, .., argN ) : null
  */
 'offline' : function ( Number timestamp ) {}
 
+// k is the number of current connection attempt
+'attempt' : function ( k, timestamp ) {}
+
 // connection is definitively lost ( after opt.attempts times )
 'lost' : function ( Number timestamp ) {}
 
