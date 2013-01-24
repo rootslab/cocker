@@ -14,7 +14,7 @@ $ npm install cocker [-g]
 var Cocker  = require( 'cocker' );
 ```
 
-###Run Tests - WIP
+###Run Tests
 
 ```bash
 $ cd cocker/
