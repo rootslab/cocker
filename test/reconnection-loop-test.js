@@ -54,6 +54,7 @@ var log = console.log,
     };
 
 log( '- test Cocker reconnection-loop with %s attempts.', opt.attempts );
+log( '- test server is not running:' );
 
 ck.on( 'offline', onOffline );
 ck.on( 'attempt', onAttempt );
