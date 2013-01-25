@@ -138,8 +138,7 @@ Cocker#bark( String evt, arg1, arg2, .., argN ) : null
 
 /*
  * commands are not written to socket, but buffered in memory
- * ( the socket connection is slow or not fully established )
- * returns -1 if bufferSize is undefined.
+ * ( the socket connection is slow or not fully established ).
  * 'drain' will be emitted when the buffer is again free.
  */
 'slowdown' : function ( String readyState, Number bufferSize ) {}
