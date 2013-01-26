@@ -40,7 +40,7 @@ new Cocker( [ Object opt ] )
     var options = {
         port : 6379,
         host : 'localhost',
-        // 'ascii', 'utf8', 'utf16le' ('ucs2'), 'ascii', or 'hex'.
+        // 'utf8', 'utf16le' ('ucs2'), 'ascii', or 'hex'.
         encoding : null,
         // false, or initialDelay in ms
         keepAlive : false,
