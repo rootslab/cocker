@@ -40,7 +40,7 @@ new Cocker( [ Object opt ] )
     var options = {
         port : 6379,
         host : 'localhost',
-        // 'ascii', 'utf8', 'utf16le' ('ucs2'), 'ascii', or 'hex'.
+        // 'utf8', 'utf16le' ('ucs2'), 'ascii', or 'hex'.
         encoding : null,
         // false, or initialDelay in ms
         keepAlive : false,
@@ -138,8 +138,7 @@ Cocker#bark( String evt, arg1, arg2, .., argN ) : null
 
 /*
  * commands are not written to socket, but buffered in memory
- * ( the socket connection is slow or not fully established )
- * returns -1 if bufferSize is undefined.
+ * ( the socket connection is slow or not fully established ).
  * 'drain' will be emitted when the buffer is again free.
  */
 'slowdown' : function ( String readyState, Number bufferSize ) {}
