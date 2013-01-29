@@ -107,10 +107,10 @@ Cocker#run( [ Object opt ] ) : null
 Cocker#send( Buffer data || String msg [ , String enc [, Function cback ] ] ) : Boolean
 
 // end the connection
-Cocker#bye( Buffer data || String msg, String enc ) : null
+Cocker#bye( Buffer data || String msg [, String enc ] ) : null
 
 // emit an event, if debug was on , it logs event to console
-Cocker#bark( String evt, arg1, arg2, .., argN ) : null
+Cocker#bark( String evt [, arg1, arg2, .., argN ] ) : null
 ```
 
 ###Events
