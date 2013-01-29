@@ -96,6 +96,7 @@ Cocker.lost : Boolean
 ###Methods
 
 > All the methods from net.Socket module are inherited.
+> Arguments within [] are optional.
 
 > Cocker methods:
 
