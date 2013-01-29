@@ -164,7 +164,7 @@ Cocker#bark( String evt [, arg1, arg2, .., argN ] ) : null
 
 'data' : function ( Buffer data ) {}
 
-'drain' : function ( Boolean hadError ) {}
+'drain' : function () {}
 
 'error' : function ( Error err ) {}
 
