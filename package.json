@@ -1,6 +1,6 @@
 {
     "name" : "cocker"
-  , "version" : "0.4.8"
+  , "version" : "0.6.0"
   , "description" : "Cocker, a socket module with reconnection logic."
   , "homepage" : "https://github.com/rootslab/cocker"
   , "repository" : {
@@ -12,7 +12,7 @@
   , "author" : "Guglielmo Ferri <44gatti@gmail.com>"
   , "dependencies" : {}
   , "main": "index"
-  , "engines" : { "node" : ">=0.4.x" }
+  , "engines" : { "node" : ">=0.10.x" }
   , "scripts" : {
         "test" : "bash test/run.sh"
   }
