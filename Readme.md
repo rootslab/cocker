@@ -1,5 +1,5 @@
 ###Cocker
-[![build status](https://travis-ci.org/rootslab/cocker.png?branch=master)](https://travis-ci.org/rootslab/cocker)
+[![build status](https://travis-ci.org/rootslab/cocker.png?branch=v0.8.x)](https://travis-ci.org/rootslab/cocker)
 > A socket module with re-connection logic.
 
 ###Install
