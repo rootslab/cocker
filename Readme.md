@@ -23,12 +23,13 @@ $ npm test
 
 ###Constructor
 
-> Create an instance.
+> Create an instance. Arguments within [ ] are optional.
+
 
 ```javascript
-Cocker( [ Object opt ] )
+Cocker( [ Object opt ] ) : Cocker
 // or
-new Cocker( [ Object opt ] )
+new Cocker( [ Object opt ] ) : Cocker
 ```
 
 ####Options
@@ -63,7 +64,7 @@ new Cocker( [ Object opt ] )
          * required to end() his side now.
          */
         allowHalfOpen : false,
-        
+
         // Cocker reconnection options
         // logging to console
         debug : false
