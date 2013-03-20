@@ -2,6 +2,8 @@
 [![build status](https://travis-ci.org/rootslab/cocker.png?branch=master)](https://travis-ci.org/rootslab/cocker)
 > A socket module with re-connection logic.
 
+> For nodeJS versions < __v0.10.x__, check __v0.8.x__ branch.
+
 ###Install
 
 ```bash
@@ -14,7 +16,7 @@ $ npm install cocker [-g]
 var Cocker  = require( 'cocker' );
 ```
 
-###Run Tests - wip
+###Run Tests
 
 ```bash
 $ cd cocker/
@@ -194,4 +196,3 @@ Cocker#bark( String evt [, arg1, arg2, .., argN ] ) : null
 > CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT,
 > TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE
 > SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
-
