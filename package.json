@@ -17,5 +17,5 @@
         "test" : "bash test/run.sh"
   }
   , "license": "MIT"
-  , "readmeFilename": "REAME.md
+  , "readmeFilename": "REAME.md"
 }
