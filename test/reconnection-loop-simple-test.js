@@ -5,7 +5,7 @@ var log = console.log,
     opt = {
         debug : !!true,
         // host : 'localhost',
-        port : 50000,
+        port : 1,
         attempts : 3
     },
     ck = Cocker( opt ),
@@ -25,7 +25,7 @@ var log = console.log,
     };
 
 log( '- test Cocker reconnection-loop with %s attempts.', opt.attempts );
-log( '- test server is not running:' );
+log( '- ok, test server is not running:' );
 
 ck.on( 'online', onOnline );
 ck.on( 'offline', onOffline );
