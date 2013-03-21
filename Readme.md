@@ -108,7 +108,7 @@ Cocker.lost : Boolean
 Cocker#run( [ Object opt ] ) : null
 
 // write to socket, encoding defaults to 'utf8'
-Cocker#send( Buffer data || String msg [ , String enc [, Function cback ] ] ) : Boolean
+Cocker#send( Buffer data || String msg [, String enc [, Function cback ] ] ) : Boolean
 
 // end the connection
 Cocker#bye( Buffer data || String msg [, String enc ] ) : null
