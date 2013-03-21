@@ -5,7 +5,7 @@ var log = console.log,
     opt = {
         debug : !!true,
         // host : 'localhost',
-        port : 1,
+        port : 50000,
         attempts : 3
     },
     ck = Cocker( opt ),
