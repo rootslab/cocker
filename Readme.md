@@ -166,11 +166,19 @@ Cocker#bark( String evt [, arg1, arg2, .., argN ] ) : undefined
 
 'close' : function ( Boolean hadError ) : undefined
 
+// old API for streams ( nodeJS < v0.10.x )
 'data' : function ( Buffer data ) : undefined
+
+// new stream2 API ( nodeJS >= v0.10.x )
+'readable' : function () : undefined
+
+'end' : function () : undefined
 
 'drain' : function () : undefined
 
 'error' : function ( Error err ) : undefined
+
+'close' : function ( Boolean had_error ) : undefined
 
 ```
 
