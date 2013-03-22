@@ -105,16 +105,16 @@ Cocker.lost : Boolean
 
 ```javascript
 // connect optionally with a config object, like for net.Socket constructor.
-Cocker#run( [ Object opt ] ) : null
+Cocker#run( [ Object opt ] ) : undefined
 
 // write to socket, encoding defaults to 'utf8'
-Cocker#send( Buffer data || String msg [ , String enc [, Function cback ] ] ) : Boolean
+Cocker#send( Buffer data || String msg [, String enc ] ) : Boolean
 
 // end the connection
-Cocker#bye( Buffer data || String msg [, String enc ] ) : null
+Cocker#bye( Buffer data || String msg [, String enc ] ) : undefined
 
 // emit an event, if debug was on, it will log event to console
-Cocker#bark( String evt [, arg1, arg2, .., argN ] ) : null
+Cocker#bark( String evt [, arg1, arg2, .., argN ] ) : undefined
 ```
 
 ###Events
@@ -126,35 +126,35 @@ Cocker#bark( String evt [, arg1, arg2, .., argN ] ) : null
 ```javascript
 
 // connection is established ( on 'connect' event )
-'online' : function ( Object address, Number timestamp ) {}
+'online' : function ( Object address, Number timestamp ) : undefined
 
 /*
  * connection is down ( on 'close' event )
  * now it will try to reconnect opt.attempts times.
  */
-'offline' : function ( Number timestamp ) {}
+'offline' : function ( Number timestamp ) : undefined
 
 // k is the number of current connection attempt
-'attempt' : function ( Number k, Number timestamp, Number millis ) {}
+'attempt' : function ( Number k, Number timestamp, Number millis ) : undefined
 
 // connection is definitively lost ( after opt.attempts times )
-'lost' : function ( Number timestamp ) {}
+'lost' : function ( Number timestamp ) : undefined
 
 /*
  * commands are not written to socket, but buffered in memory
  * ( the socket connection is slow or not fully established ).
  * 'drain' will be emitted when the buffer is again free.
  */
-'slowdown' : function ( String readyState, Number bufferSize ) {}
+'slowdown' : function ( String readyState, Number bufferSize ) : undefined
 
 // informational event for logging
-'info' : function ( String msg ) {}
+'info' : function ( String msg ) : undefined
 
 // warning event for logging
-'warning' : function ( String  msg ) {}
+'warning' : function ( String  msg ) : undefined
 
 // signal socket timeout
-'timeout' : function ( Number timestamp ) {}
+'timeout' : function ( Number timestamp ) : undefined
 ```
 
 > other events from net.Socket:
@@ -162,15 +162,15 @@ Cocker#bark( String evt [, arg1, arg2, .., argN ] ) : null
 ```javascript
 
 
-'connect' : function () {}
+'connect' : function () : undefined
 
-'close' : function ( Boolean hadError ) {}
+'close' : function ( Boolean hadError ) : undefined
 
-'data' : function ( Buffer data ) {}
+'data' : function ( Buffer data ) : undefined
 
-'drain' : function () {}
+'drain' : function () : undefined
 
-'error' : function ( Error err ) {}
+'error' : function ( Error err ) : undefined
 
 ```
 
