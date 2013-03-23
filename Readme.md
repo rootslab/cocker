@@ -114,7 +114,7 @@ Cocker#send( Buffer data || String msg [, String enc ] ) : Boolean
 Cocker#bye( Buffer data || String msg [, String enc ] ) : undefined
 
 // emit an event, if debug was on, it will log event to console
-Cocker#bark( String evt [, arg1, arg2, .., argN ] ) : undefined
+Cocker#bark( String evt [, arg1 [, arg2 [, .. [, argN ] ] ] ] ) : undefined
 ```
 
 ###Events

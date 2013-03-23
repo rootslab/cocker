@@ -8,14 +8,14 @@
         ,"url" : "git://github.com/rootslab/cocker.git"
     }
   , "keywords" : [ "socket", "net", "cocker", "connection" ]
-  , "tags": [ "socket", "connection", "cocker", "net" ]
+  , "tags" : [ "socket", "connection", "cocker", "net" ]
   , "author" : "Guglielmo Ferri <44gatti@gmail.com>"
   , "dependencies" : {}
-  , "main": "index"
+  , "main" : "index"
   , "engines" : { "node" : ">=0.10.x" }
   , "scripts" : {
         "test" : "bash test/run.sh"
   }
-  , "license": "MIT"
-  , "readmeFilename": "REAME.md"
+  , "license" : "MIT"
+  , "readmeFilename" : "REAME.md"
 }
