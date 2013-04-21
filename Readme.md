@@ -132,29 +132,29 @@ Cocker#bark( String evt [, arg1 [, arg2 [, .. [, argN ] ] ] ] ) : undefined
  * connection is down ( on 'close' event )
  * now it will try to reconnect opt.attempts times.
  */
-'offline' : function ( Number timestamp ) : undefined
+'offline' : function ( Number timestamp ) {}
 
 // k is the number of current connection attempt
 'attempt' : function ( Number k, Number timestamp, Number millis ) : undefined
 
 // connection is definitively lost ( after opt.attempts times )
-'lost' : function ( Number timestamp ) : undefined
+'lost' : function ( Number timestamp ) {}
 
 /*
  * commands are not written to socket, but buffered in memory
  * ( the socket connection is slow or not fully established ).
  * 'drain' will be emitted when the buffer is again free.
  */
-'slowdown' : function ( String readyState, Number bufferSize ) : undefined
+'slowdown' : function ( String readyState, Number bufferSize ) {}
 
 // informational event for logging
-'info' : function ( String msg ) : undefined
+'info' : function ( String msg ) {}
 
 // warning event for logging
-'warning' : function ( String  msg ) : undefined
+'warning' : function ( String  msg ) {}
 
 // signal socket timeout
-'timeout' : function ( Number timestamp ) : undefined
+'timeout' : function ( Number timestamp ) {}
 ```
 
 > other events from net.Socket:
@@ -162,23 +162,23 @@ Cocker#bark( String evt [, arg1 [, arg2 [, .. [, argN ] ] ] ] ) : undefined
 ```javascript
 
 
-'connect' : function () : undefined
+'connect' : function () {}
 
-'close' : function ( Boolean hadError ) : undefined
+'close' : function ( Boolean hadError ) {}
 
 // old API for streams ( nodeJS < v0.10.x )
-'data' : function ( Buffer data ) : undefined
+'data' : function ( Buffer data ) {}
 
 // new stream2 API ( nodeJS >= v0.10.x )
-'readable' : function () : undefined
+'readable' : function () {}
 
-'end' : function () : undefined
+'end' : function () {}
 
-'drain' : function () : undefined
+'drain' : function () {}
 
-'error' : function ( Error err ) : undefined
+'error' : function ( Error err ) {}
 
-'close' : function ( Boolean had_error ) : undefined
+'close' : function ( Boolean had_error ) {}
 
 ```
 
