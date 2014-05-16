@@ -67,7 +67,7 @@ sock_opt = {
  , reconnection : {
     trials : 3
     , interval : 1000
-    , factor : goldenRatio
+    , factor : ( Math.sqrt( 5 ) + 1 ) / 2
  }
 }
 ```
