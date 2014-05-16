@@ -1,7 +1,7 @@
 fails=0
 n=0
 for t in test/*-test.js; do
-  echo -e "\n[" $t "]"
+  echo -e "\n[" $t "]\n"
   node $t || let fails++
   let n++
 done
