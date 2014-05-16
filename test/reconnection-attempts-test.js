@@ -14,23 +14,25 @@ var log = console.log
     , attempts = 0
     , ck = Cocker( opt )
     ;
-log( ' - check the number of connection retries, should be %d', trials );
+
+log( '- check the number of connection retries with no server listening, should be %d.', trials );
 
 ck.on( 'online', function ( address ) {
-    log( ':online' );
+    log( ' :online' );
+    throw new Error( 'no server should listen on ' + opt.address.host + ':' + opt.address.port +'.' );
 } );
 
 ck.on( 'offline', function ( address ) {
-    log( ':offline' );
+    log( ' :offline' );
 } );
 
 ck.on( 'attempt', function ( k, address, lapse ) {
-    log( ':attempt', k );
+    log( ' :attempt', k );
     ++attempts;
 } );
 
 ck.on( 'lost', function ( address ) {
-    log( ':lost' );
+    log( ' :lost' );
     assert.equal( attempts, trials );
 } );
 
