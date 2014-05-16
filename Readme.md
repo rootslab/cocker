@@ -86,7 +86,7 @@ Cocker.attempts : Number
 // a flag, also useful to manually disable/re-enable/check reconnection-loop
 Cocker.lost : Boolean
 
-// the last interval in millis between conneciton attempts.
+// the last interval in millis between connection attempts.
 Cocker.lapse : Number
 ```
 
