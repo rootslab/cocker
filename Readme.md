@@ -1,5 +1,5 @@
 ###Cocker
-[![build status](https://travis-ci.org/rootslab/cocker.png?branch=master)](https://travis-ci.org/rootslab/cocker) [![NPM version](https://badge.fury.io/js/cocker.png)](http://badge.fury.io/js/cocker)
+[![build status](https://travis-ci.org/rootslab/cocker.png?branch=master)](https://travis-ci.org/rootslab/cocker)
 
 [![NPM version](https://badge.fury.io/js/cocker.png)](http://badge.fury.io/js/cocker)
 
