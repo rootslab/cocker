@@ -101,7 +101,7 @@ Cocker.lapse : Number
 Cocker#run( [ Object options ] ) : undefined
 
 // Use this method to end the connection without re-connecting.
-Cocker#bye( Buffer data | String message [, String encoding ] ) : undefined
+Cocker#bye( [ Buffer data | String message [, String encoding ] ] ) : undefined
 ```
 
 ###Events
