@@ -4,15 +4,17 @@ var log = console.log,
     opt = {
         debug : !!true,
         // host : 'localhost',
-        port : 50000,
-        attempts : 3
+        port : 6379,
+        attempts : 2
     }
     ck = Cocker( opt );
 
 ck.on( 'online', function ( address, timestamp ) {
     // connection is established ( on 'connect' event )
 } );
-
+ck.on( 'readable', function ( address, timestamp ) {
+    // connection is established ( on 'connect' event )
+} );
 ck.on( 'offline', function ( timestamp ) {
     /*
      * connection is down ( on 'close' event )
@@ -38,6 +40,7 @@ ck.on( 'slowdown', function ( readyState, bufferSize ) {
 
 ck.on( 'lost', function ( timestamp ) {
     // connection is definitively lost ( after opt.attempts times )
+    // ck.run();
 } );
 
 
@@ -72,4 +75,4 @@ ck.on( 'close', function ( hadError ) {
 ck.on( 'drain', function ( hadError ) {
 } );
 
-// ck.run();
+ck.run();

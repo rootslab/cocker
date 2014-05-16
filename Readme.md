@@ -1,6 +1,6 @@
 ###Cocker
 [![build status](https://travis-ci.org/rootslab/cocker.png?branch=master)](https://travis-ci.org/rootslab/cocker) [![NPM version](https://badge.fury.io/js/cocker.png)](http://badge.fury.io/js/cocker)
-> A socket module with re-connection logic.
+> **__COcker__**. a socket module to handle reconnection retries.
 
 > For nodeJS versions < __v0.10.x__, check __v0.8.x__ branch.
 
@@ -27,7 +27,6 @@ $ npm test
 
 > Create an instance. Arguments within [ ] are optional.
 
-
 ```javascript
 Cocker( [ Object opt ] ) : Cocker
 // or
@@ -39,44 +38,44 @@ new Cocker( [ Object opt ] ) : Cocker
 > Cocker supports all net.Socket options in a unique configuration object:
 
 ```javascript
-    // default options are listed
-    var options = {
-        port : 6379,
-        host : 'localhost',
-        // 'utf8', 'utf16le' ('ucs2'), 'ascii', or 'hex'.
-        encoding : null,
-        // false, or initialDelay in ms
-        keepAlive : false,
-        // millis to emit timeout event
-        timeout : 2000,
-        /*
-         * noDelay, it defaults to false.
-         * true for disabling the Nagle algorithm 
-         * ( no TCP data buffering for socket.write )
-         */
-        noDelay : false,
-        // unix socket domain file descriptor - path
-        fd : undefined,
-        // 'tcp4', 'tcp6', or 'unix'
-        type : null,
-        /*
-         * By setting allowHalfOpen = true, the socket will not
-         * automatically end()s its side, allowing the user to write
-         * arbitrary amounts of data, with the caveat that the user is
-         * required to end() his side now.
-         */
-        allowHalfOpen : false,
+// default options are listed
+var options = {
+    port : 6379,
+    host : 'localhost',
+    // 'utf8', 'utf16le' ('ucs2'), 'ascii', or 'hex'.
+    encoding : null,
+    // false, or initialDelay in ms
+    keepAlive : false,
+    // millis to emit timeout event
+    timeout : 2000,
+    /*
+     * noDelay, it defaults to false.
+     * true for disabling the Nagle algorithm 
+     * ( no TCP data buffering for socket.write )
+     */
+    noDelay : false,
+    // unix socket domain file descriptor - path
+    fd : undefined,
+    // 'tcp4', 'tcp6', or 'unix'
+    type : null,
+    /*
+     * By setting allowHalfOpen = true, the socket will not
+     * automatically end()s its side, allowing the user to write
+     * arbitrary amounts of data, with the caveat that the user is
+     * required to end() his side now.
+     */
+    allowHalfOpen : false,
 
-        // Cocker reconnection options
-        // logging to console
-        debug : false
-        // try 3 times before quitting
-        attempts : 3,
-        // millis, default to 1 sec
-        retryInterval : 1000,
-        // interval between attempts = retryInterval * Math.pow( attempt, retryFactor )
-        retryFactor : ( Math.sqrt( 5 ) + 1 ) / 2
-    };
+    // Cocker reconnection options
+    // logging to console
+    debug : false
+    // try 3 times before quitting
+    attempts : 3,
+    // millis, default to 1 sec
+    retryInterval : 1000,
+    // interval between attempts = retryInterval * Math.pow( attempt, retryFactor )
+    retryFactor : ( Math.sqrt( 5 ) + 1 ) / 2
+};
 ```
 
 ###Properties
