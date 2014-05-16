@@ -38,44 +38,50 @@ new Cocker( [ Object opt ] ) : Cocker
 > Cocker supports all net.Socket options in a unique configuration object:
 
 ```javascript
-// default options are listed
-var options = {
-    port : 6379,
-    host : 'localhost',
-    // 'utf8', 'utf16le' ('ucs2'), 'ascii', or 'hex'.
-    encoding : null,
-    // false, or initialDelay in ms
-    keepAlive : false,
-    // millis to emit timeout event
-    timeout : 2000,
+// all default options are listed
+sock_opt = {
     /*
-     * noDelay, it defaults to false.
-     * true for disabling the Nagle algorithm 
-     * ( no TCP data buffering for socket.write )
+     * Set readable and/or writable to true to allow reads and/or writes
+     * on this socket (NOTE: Works only when fd is passed).
      */
-    noDelay : false,
-    // unix socket domain file descriptor - path
-    fd : undefined,
-    // 'tcp4', 'tcp6', or 'unix'
-    type : null,
-    /*
-     * By setting allowHalfOpen = true, the socket will not
-     * automatically end()s its side, allowing the user to write
-     * arbitrary amounts of data, with the caveat that the user is
-     * required to end() his side now.
-     */
-    allowHalfOpen : false,
-
-    // Cocker reconnection options
-    // logging to console
-    debug : false
-    // try 3 times before quitting
-    attempts : 3,
-    // millis, default to 1 sec
-    retryInterval : 1000,
-    // interval between attempts = retryInterval * Math.pow( attempt, retryFactor )
-    retryFactor : ( Math.sqrt( 5 ) + 1 ) / 2
-};
+    path : {
+        fd : undefined
+        , readable : true
+        , writable : true
+    }
+    , address : { port : 0 , host : 'localhost' }
+    , connection : {
+        /*
+         * encoding could be: 'ascii', 'utf8', 'utf16le' or 
+         * 'ucs2','buffer'. It defaults to null or 'buffer'.
+         */
+        encoding : null
+        /*
+         * keepAlive defaults to true.
+         * Specify a number to set also the initialDelay.
+         */
+        , keepAlive : true
+        // 'timeout' event delay, default is 0 ( no timeout )
+        , timeout : 0
+        /*
+        * noDelay is true for default, it disables the Nagle
+        * algorithm ( no TCP data buffering for socket.write )
+        */
+        , noDelay : true
+        /*
+         * If true, the socket won't automatically send a FIN
+         * packet when the other end of the socket sends a FIN
+         * packet. Defaults to false.
+         */
+        , allowHalfOpen : false
+    }
+    // Cocker custom options
+    , reconnection : {
+        trials : 3
+        , interval : 1000
+        , factor : goldenRatio
+    }
+}
 ```
 
 ###Properties
@@ -93,91 +99,49 @@ Cocker.attempts : Number
 
 // a flag, also useful to manually disable/re-enable/check reconnection-loop
 Cocker.lost : Boolean
+
+// the last interval in millis between conneciton attempts.
+Cocker.lapse : Number
 ```
 
 ###Methods
 
 > All the methods from net.Socket module are inherited.
-> Arguments within [ ] are optional.
+> Arguments within [ ] are optional, '|' indicates multiple type for an argument.
 
 > Cocker methods:
 
 ```javascript
-// connect optionally with a config object, like for net.Socket constructor.
-Cocker#run( [ Object opt ] ) : undefined
+// connect optionally with a config object, like for the constructor.
+Cocker#run( [ Object options ] ) : undefined
 
-// write to socket, encoding defaults to 'utf8'
-Cocker#send( Buffer data || String msg [, String enc ] ) : Boolean
+// Use this method to end the connection without re-connecting.
+Cocker#bye( Buffer data | String message [, String encoding ] ) : undefined
 
-// end the connection
-Cocker#bye( Buffer data || String msg [, String enc ] ) : undefined
-
-// emit an event, if debug was on, it will log event to console
-Cocker#bark( String evt [, arg1 [, arg2 [, .. [, argN ] ] ] ] ) : undefined
 ```
 
 ###Events
 
 > All the events from net.Socket module are inherited.
 
-> Cocker events :
+> Cocker custom events:
 
 ```javascript
 
-// connection is established ( on 'connect' event )
-'online' : function ( Object address, Number timestamp ) : undefined
+// Connection was established.
+'online' : function ( Object address ) : undefined
 
 /*
- * connection is down ( on 'close' event )
+ * Connection is down ( on first 'close' event )
  * now it will try to reconnect opt.attempts times.
  */
-'offline' : function ( Number timestamp ) {}
+'offline' : function ( Object address ) {}
 
 // k is the number of current connection attempt
-'attempt' : function ( Number k, Number timestamp, Number millis ) : undefined
+'attempt' : function ( Number k, Object address, Number millis ) : undefined
 
 // connection is definitively lost ( after opt.attempts times )
-'lost' : function ( Number timestamp ) {}
-
-/*
- * commands are not written to socket, but buffered in memory
- * ( the socket connection is slow or not fully established ).
- * 'drain' will be emitted when the buffer is again free.
- */
-'slowdown' : function ( String readyState, Number bufferSize ) {}
-
-// informational event for logging
-'info' : function ( String msg ) {}
-
-// warning event for logging
-'warning' : function ( String  msg ) {}
-
-// signal socket timeout
-'timeout' : function ( Number timestamp ) {}
-```
-
-> other events from net.Socket:
-
-```javascript
-
-
-'connect' : function () {}
-
-'close' : function ( Boolean hadError ) {}
-
-// old API for streams ( nodeJS < v0.10.x )
-'data' : function ( Buffer data ) {}
-
-// new stream2 API ( nodeJS >= v0.10.x )
-'readable' : function () {}
-
-'end' : function () {}
-
-'drain' : function () {}
-
-'error' : function ( Error err ) {}
-
-'close' : function ( Boolean had_error ) {}
+'lost' : function ( Object address ) {}
 
 ```
 
