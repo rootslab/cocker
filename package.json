@@ -1,21 +1,41 @@
 {
     "name" : "cocker"
-  , "version" : "0.6.5"
-  , "description" : "Cocker, a socket module with reconnection logic."
+  , "version" : "0.10.0"
+  , "description" : "Cocker, a socket module to handle reconnection retries."
   , "homepage" : "https://github.com/rootslab/cocker"
+  , "private": false
   , "repository" : {
-        "type" : "git"
-        ,"url" : "git://github.com/rootslab/cocker.git"
-    }
-  , "keywords" : [ "socket", "net", "cocker", "connection" ]
-  , "tags" : [ "socket", "connection", "cocker", "net" ]
-  , "author" : "Guglielmo Ferri <44gatti@gmail.com>"
-  , "dependencies" : {}
+    "type" : "git"
+    ,"url" : "git://github.com/rootslab/cocker.git"
+  }
+  , "keywords" : [
+    "socket"
+    , "net"
+    , "connection"
+    , "reconnection"
+    , "reconnection retries"
+    , "retries"
+    , "trials"
+    , "cocker"
+  ]
+  , "author": {
+    "name": "Guglielmo Ferri"
+    , "email": "44gatti@gmail.com"
+  }
+  , "dependencies" : {
+    "bolgia" : ">=2.5.0"
+  }
+  , "devDependencies": {}
   , "main" : "index"
-  , "engines" : { "node" : ">=0.10.x" }
+  , "engines" : {
+    "node" : ">=0.10.x"
+  }
   , "scripts" : {
-        "test" : "bash test/run.sh"
+    "test" : "bash test/run.sh"
   }
   , "license" : "MIT"
-  , "readmeFilename" : "REAME.md"
+  , "readmeFilename" : "Readme.md"
+  , "bugs": {
+    "url": "https://github.com/rootslab/cocker/issues"
+  }
 }
