@@ -1,6 +1,6 @@
 {
     "name" : "cocker"
-  , "version" : "0.9.0"
+  , "version" : "0.9.1"
   , "description" : "Cocker, a socket module to handle reconnection retries."
   , "homepage" : "https://github.com/rootslab/cocker"
   , "private": false
