@@ -116,7 +116,6 @@ Cocker#bye( Buffer data | String message [, String encoding ] ) : undefined
 'online' : function ( Object address ) : undefined
 
 // Connection is down ( on first 'close' event ).
- */
 'offline' : function ( Object address ) {}
 
 // k is the number of current connection attempt
