@@ -1,5 +1,14 @@
 ###Cocker
 [![build status](https://travis-ci.org/rootslab/cocker.png?branch=master)](https://travis-ci.org/rootslab/cocker) [![NPM version](https://badge.fury.io/js/cocker.png)](http://badge.fury.io/js/cocker)
+
+[![NPM version](https://badge.fury.io/js/cocker.png)](http://badge.fury.io/js/cocker)
+
+[![NPM](https://nodei.co/npm/cocker.png?downloads=true&stars=true)](https://nodei.co/npm/cocker/)
+
+[![NPM](https://nodei.co/npm-dl/cocker.png)](https://nodei.co/npm/cocker/)
+
+
+
 > **__Cocker__**. a socket module to handle reconnection retries.
 
 > For nodeJS versions < __v0.10.x__, check __v0.8.x__ branch.
