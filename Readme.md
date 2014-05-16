@@ -115,9 +115,7 @@ Cocker#bye( Buffer data | String message [, String encoding ] ) : undefined
 // Connection was established.
 'online' : function ( Object address ) : undefined
 
-/*
- * Connection is down ( on first 'close' event )
- * now it will try to reconnect opt.attempts times.
+// Connection is down ( on first 'close' event ).
  */
 'offline' : function ( Object address ) {}
 
