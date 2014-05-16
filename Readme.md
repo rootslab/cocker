@@ -48,38 +48,28 @@ new Cocker( [ Object opt ] ) : Cocker
 
 ```javascript
 sock_opt = {
-
-    address : {
-        port : 0
-        , host : 'localhost'
-    }
-    , path : {
-        fd : undefined
-        , readable : true
-        , writable : true
-    }
-    , connection : {
-
-        // 'ascii', 'utf8', 'utf16le' or 'ucs2','buffer'.
-        encoding : null
-        
-        // specify a number to set also the initialDelay.
-        , keepAlive : true
-        
-        // 'timeout' event delay, default is 0 ( no timeout )
-        , timeout : 0
-        
-        // disable TCP data buffering for socket.write
-        , noDelay : true
-
-        , allowHalfOpen : false
-    }
-    , reconnection : {
-        // Cocker custom options
-        trials : 3
-        , interval : 1000
-        , factor : goldenRatio
-    }
+ address : {
+    port : 0
+    , host : 'localhost'
+ }
+ , path : {
+    fd : undefined
+    , readable : true
+    , writable : true
+ }
+ , connection : {
+    encoding : null
+    , keepAlive : true
+    , timeout : 0
+    , noDelay : true
+    , allowHalfOpen : false
+ }
+ // Cocker custom options
+ , reconnection : {
+    trials : 3
+    , interval : 1000
+    , factor : goldenRatio
+ }
 }
 ```
 
