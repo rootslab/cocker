@@ -1,6 +1,6 @@
 {
     "name" : "cocker"
-  , "version" : "0.8.1"
+  , "version" : "0.8.2"
   , "description" : "Cocker, a socket module to handle reconnection retries."
   , "homepage" : "https://github.com/rootslab/cocker"
   , "private": false
@@ -13,8 +13,10 @@
     , "net"
     , "connection"
     , "reconnection"
-    ,  "reconnection retries"
-    ,  "cocker"
+    , "reconnection retries"
+    , "retries"
+    , "trials"
+    , "cocker"
   ]
   , "author": {
     "name": "Guglielmo Ferri"

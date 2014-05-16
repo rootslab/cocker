@@ -1,6 +1,6 @@
 ###Cocker
 [![build status](https://travis-ci.org/rootslab/cocker.png?branch=master)](https://travis-ci.org/rootslab/cocker) [![NPM version](https://badge.fury.io/js/cocker.png)](http://badge.fury.io/js/cocker)
-> **__COcker__**. a socket module to handle reconnection retries.
+> **__Cocker__**. a socket module to handle reconnection retries.
 
 > For nodeJS versions < __v0.10.x__, check __v0.8.x__ branch.
 
@@ -38,45 +38,35 @@ new Cocker( [ Object opt ] ) : Cocker
 > Cocker supports all net.Socket options in a unique configuration object:
 
 ```javascript
-// all default options are listed
 sock_opt = {
-    /*
-     * Set readable and/or writable to true to allow reads and/or writes
-     * on this socket (NOTE: Works only when fd is passed).
-     */
-    path : {
+
+    address : {
+        port : 0
+        , host : 'localhost'
+    }
+    , path : {
         fd : undefined
         , readable : true
         , writable : true
     }
-    , address : { port : 0 , host : 'localhost' }
     , connection : {
-        /*
-         * encoding could be: 'ascii', 'utf8', 'utf16le' or 
-         * 'ucs2','buffer'. It defaults to null or 'buffer'.
-         */
+
+        // 'ascii', 'utf8', 'utf16le' or 'ucs2','buffer'.
         encoding : null
-        /*
-         * keepAlive defaults to true.
-         * Specify a number to set also the initialDelay.
-         */
+        
+        // specify a number to set also the initialDelay.
         , keepAlive : true
+        
         // 'timeout' event delay, default is 0 ( no timeout )
         , timeout : 0
-        /*
-        * noDelay is true for default, it disables the Nagle
-        * algorithm ( no TCP data buffering for socket.write )
-        */
+        
+        // disable TCP data buffering for socket.write
         , noDelay : true
-        /*
-         * If true, the socket won't automatically send a FIN
-         * packet when the other end of the socket sends a FIN
-         * packet. Defaults to false.
-         */
+
         , allowHalfOpen : false
     }
-    // Cocker custom options
     , reconnection : {
+        // Cocker custom options
         trials : 3
         , interval : 1000
         , factor : goldenRatio
@@ -86,9 +76,7 @@ sock_opt = {
 
 ###Properties
 
-> All the properties from net.Socket module are inherited.
-
-> also :
+> Cocker custom properties:
 
 ```javascript
 // a property that holds the initial config object:
@@ -107,9 +95,8 @@ Cocker.lapse : Number
 ###Methods
 
 > All the methods from net.Socket module are inherited.
-> Arguments within [ ] are optional, '|' indicates multiple type for an argument.
 
-> Cocker methods:
+> Arguments within [ ] are optional, '|' indicates multiple type for an argument.
 
 ```javascript
 // connect optionally with a config object, like for the constructor.
@@ -117,7 +104,6 @@ Cocker#run( [ Object options ] ) : undefined
 
 // Use this method to end the connection without re-connecting.
 Cocker#bye( Buffer data | String message [, String encoding ] ) : undefined
-
 ```
 
 ###Events
