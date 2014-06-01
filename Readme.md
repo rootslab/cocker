@@ -34,7 +34,7 @@ $ npm test
 
 ###Constructor
 
-> Create an instance. Arguments within [ ] are optional.
+> Create an instance, the argument within [ ] is optional.
 
 ```javascript
 Cocker( [ Object opt ] ) : Cocker
