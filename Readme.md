@@ -113,16 +113,24 @@ Cocker#bye( [ Buffer data | String message [, String encoding ] ] ) : undefined
 
 ```javascript
 
-// Connection was established.
+/*
+ * Connection was established.
+ */
 'online' : function ( Object address ) : undefined
 
-// Connection is down ( on first 'close' event ).
+/*
+ * Connection is down ( on first 'close' event for the socket).
+ */
 'offline' : function ( Object address ) : undefined
 
-// k is the number of current connection attempt
+/*
+ * k is the number of current connection attempt.
+ */
 'attempt' : function ( Number k, Object address, Number millis ) : undefined
 
-// connection is definitively lost ( after opt.attempts times )
+/*
+ * Connection is definitively lost ( after opt.reconnection.trials times ).
+ */
 'lost' : function ( Object address ) : undefined
 
 ```
