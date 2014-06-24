@@ -47,7 +47,7 @@ new Cocker( [ Object opt ] ) : Cocker
 > Cocker supports all net.Socket options in a unique configuration object:
 
 ```javascript
-opt = {
+cocker_opt = {
  address : {
     port : 0
     , host : 'localhost'
@@ -68,6 +68,12 @@ opt = {
  , reconnection : {
     trials : 3
     , interval : 1000
+    /*
+     * A value to use for calculating the pause between two
+     * connection attempts. Default value is the golden ratio.
+     * Final value is calculated as:
+     * interval * Math.pow( factor, curr.attempts + 1 )
+     */
     , factor : ( Math.sqrt( 5 ) + 1 ) / 2
  }
 }
@@ -98,8 +104,8 @@ Cocker.lapse : Number
 > Arguments within [ ] are optional, '|' indicates multiple type for an argument.
 
 ```javascript
-// connect optionally with a config object, like for the constructor.
-Cocker#run( [ Object options ] ) : undefined
+// connect to socket, optionally (re-)configuring the connection.
+Cocker#run( [ Object cocker_options ] ) : undefined
 
 // Use this method to end the connection without re-connecting.
 Cocker#bye( [ Buffer data | String message [, String encoding ] ] ) : undefined
