@@ -49,8 +49,9 @@ new Cocker( [ Object opt ] ) : Cocker
 ```javascript
 cocker_opt = {
  address : {
-    port : 0
-    , host : 'localhost'
+    host : 'localhost'
+    , port : 0
+    , family : 'IPv4'
  }
  , path : undefined
  , connection : {

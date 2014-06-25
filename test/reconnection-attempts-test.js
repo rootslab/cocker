@@ -20,7 +20,7 @@ log( '- test re-connections with address:', ck.options.address );
 log( '- check the number of connection retries with no server listening, should be %d.', trials );
 
 ck.on( 'online', function ( address ) {
-    var emsg = 'sorry, no server should running/listening on "' + opt.address.host + ':' + opt.address.port + '".'
+    var emsg = 'Sorry, no server should running/listening on "' + opt.address.host + ':' + opt.address.port + '".'
         ;
     log( ' :online' );
     throw new Error( emsg );
