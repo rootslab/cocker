@@ -44,7 +44,7 @@ new Cocker( [ Object opt ] ) : Cocker
 
 ####Options
 
-> Cocker supports all net.Socket options in a unique configuration object:
+> Cocker supports net.Socket options:
 
 ```javascript
 cocker_opt = {
@@ -52,11 +52,7 @@ cocker_opt = {
     port : 0
     , host : 'localhost'
  }
- , path : {
-    fd : undefined
-    , readable : true
-    , writable : true
- }
+ , path : undefined
  , connection : {
     encoding : null
     , keepAlive : true

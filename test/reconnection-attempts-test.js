@@ -1,7 +1,7 @@
 var log = console.log
     , assert = require( 'assert' )
     , Cocker = require('../')
-    , trials = 4
+    , trials = 6
     , opt = {
         address : {
             port : 0
@@ -15,11 +15,15 @@ var log = console.log
     , ck = Cocker( opt )
     ;
 
+log( '- test re-connections with address:', ck.options.address );
+
 log( '- check the number of connection retries with no server listening, should be %d.', trials );
 
 ck.on( 'online', function ( address ) {
+    var emsg = 'sorry, no server should running/listening on "' + opt.address.host + ':' + opt.address.port + '".'
+        ;
     log( ' :online' );
-    throw new Error( 'no server should listen on ' + opt.address.host + ':' + opt.address.port +'.' );
+    throw new Error( emsg );
 } );
 
 ck.on( 'offline', function ( address ) {
@@ -27,7 +31,7 @@ ck.on( 'offline', function ( address ) {
 } );
 
 ck.on( 'attempt', function ( k, address, lapse ) {
-    log( ' :attempt', k );
+    log( ' :attempt %d (%d secs)', k, ( lapse / 1000 ).toFixed( 1 ) );
     ++attempts;
 } );
 
