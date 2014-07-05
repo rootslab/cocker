@@ -1,26 +1,27 @@
 var log = console.log
     , assert = require( 'assert' )
     , Cocker = require('../')
-    , trials = 6
+    , trials = 4
     , opt = {
-        address : {
-            port : 6379
+        path : '/tmp/a.redis.sock'
+        , address : {
+            port : 0
         }
         , reconnection : {
             trials : trials
-            , interval : 200
+            , interval : 500
         }
     }
     , attempts = 0
     , ck = Cocker( opt )
     ;
 
-log( '- test re-connections with address:', ck.options.address );
+log( '- test re-connections with filepath: %s"', ck.options.path );
 
 log( '- check the number of connection retries with no server listening, should be %d.', trials );
 
 ck.on( 'online', function ( address ) {
-    var emsg = 'Sorry, no server should running/listening on "' + opt.address.host + ':' + opt.address.port + '".'
+    var emsg = 'Sorry, no server should running/listening on "' + opt.path + '".'
         ;
     log( ' :online' );
     throw new Error( emsg );
