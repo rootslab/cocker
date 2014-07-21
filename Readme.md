@@ -1,13 +1,19 @@
 ###Cocker
-[![build status](https://travis-ci.org/rootslab/cocker.png?branch=master)](https://travis-ci.org/rootslab/cocker)
-[![NPM version](https://badge.fury.io/js/cocker.png)](http://badge.fury.io/js/cocker)
-[![build status](https://david-dm.org/rootslab/cocker.png)](https://david-dm.org/rootslab/cocker)
 
-[![NPM](https://nodei.co/npm/cocker.png?downloads=true&stars=true)](https://nodei.co/npm/cocker/)
+[![LICENSE](http://img.shields.io/badge/license-MIT-blue.svg)](https://github.com/rootslab/cocker#mit-license)
 
-[![NPM](https://nodei.co/npm-dl/cocker.png)](https://nodei.co/npm/cocker/)
+[![NPM VERSION](http://img.shields.io/npm/v/cocker.svg)](https://www.npmjs.org/package/cocker)
+[![TRAVIS CI BUILD](http://img.shields.io/travis/rootslab/cocker.svg)](http://travis-ci.org/rootslab/cocker)
+[![BUILD STATUS](http://img.shields.io/david/rootslab/cocker.svg)](https://david-dm.org/rootslab/cocker)
 
+[![NPM GRAPH1](https://nodei.co/npm-dl/cocker.png)](https://nodei.co/npm/cocker/)
 
+[![GITHUB tag](http://img.shields.io/github/tag/rootslab/cocker.svg)](https://github.com/rootslab/cocker/tags)
+[![ISSUES](http://img.shields.io/github/issues/rootslab/cocker.svg)](https://github.com/rootslab/cocker/issues)
+[![GITTIP](http://img.shields.io/gittip/rootslab.svg)](https://www.gittip.com/rootslab/)
+[![NPM DOWNLOADS](http://img.shields.io/npm/dm/cocker.svg)](http://npm-stat.com/charts.html?package=cocker)
+
+[![NPM GRAPH2](https://nodei.co/npm/cocker.png?downloads=true&stars=true)](https://nodei.co/npm/cocker/)
 
 > **__Cocker__**. a socket module to handle reconnection retries.
 
