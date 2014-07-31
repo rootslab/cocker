@@ -1,21 +1,17 @@
 ###Cocker
 
-[![LICENSE](http://img.shields.io/badge/license-MIT-blue.svg)](https://github.com/rootslab/cocker#mit-license)
-
-[![NPM VERSION](http://img.shields.io/npm/v/cocker.svg)](https://www.npmjs.org/package/cocker)
-[![TRAVIS CI BUILD](http://img.shields.io/travis/rootslab/cocker.svg)](http://travis-ci.org/rootslab/cocker)
-[![BUILD STATUS](http://img.shields.io/david/rootslab/cocker.svg)](https://david-dm.org/rootslab/cocker)
-
-[![NPM GRAPH1](https://nodei.co/npm-dl/cocker.png)](https://nodei.co/npm/cocker/)
-
-[![GITHUB tag](http://img.shields.io/github/tag/rootslab/cocker.svg)](https://github.com/rootslab/cocker/tags)
-[![ISSUES](http://img.shields.io/github/issues/rootslab/cocker.svg)](https://github.com/rootslab/cocker/issues)
+[![LICENSE](http://img.shields.io/badge/license-MIT-blue.svg)](https://github.com/rootslab/sermone#mit-license)
 [![GITTIP](http://img.shields.io/gittip/rootslab.svg)](https://www.gittip.com/rootslab/)
-[![NPM DOWNLOADS](http://img.shields.io/npm/dm/cocker.svg)](http://npm-stat.com/charts.html?package=cocker)
+[![NPM DOWNLOADS](http://img.shields.io/npm/dm/sermone.svg)](http://npm-stat.com/charts.html?package=sermone)
 
-[![NPM GRAPH2](https://nodei.co/npm/cocker.png?downloads=true&stars=true)](https://nodei.co/npm/cocker/)
+[![NPM VERSION](http://img.shields.io/npm/v/sermone.svg)](https://www.npmjs.org/package/sermone)
+[![TRAVIS CI BUILD](http://img.shields.io/travis/rootslab/sermone.svg)](http://travis-ci.org/rootslab/sermone)
+[![BUILD STATUS](http://img.shields.io/david/rootslab/sermone.svg)](https://david-dm.org/rootslab/sermone)
+[![DEVDEPENDENCY STATUS](http://img.shields.io/david/dev/rootslab/sermone.svg)](https://david-dm.org/rootslab/sermone#info=devDependencies)
 
-> **__Cocker__**. a socket module to handle reconnection retries.
+[![NPM GRAPH1](https://nodei.co/npm-dl/sermone.png)](https://nodei.co/npm/sermone/)
+
+[![NPM GRAPH2](https://nodei.co/npm/sermone.png?downloads=true&stars=true)](https://nodei.co/npm/sermone/)
 
 > For nodeJS versions < __v0.10.x__, check __v0.8.x__ branch.
 
