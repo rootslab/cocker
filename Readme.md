@@ -1,17 +1,21 @@
 ###Cocker
 
-[![LICENSE](http://img.shields.io/badge/license-MIT-blue.svg)](https://github.com/rootslab/sermone#mit-license)
-[![GITTIP](http://img.shields.io/gittip/rootslab.svg)](https://www.gittip.com/rootslab/)
-[![NPM DOWNLOADS](http://img.shields.io/npm/dm/sermone.svg)](http://npm-stat.com/charts.html?package=sermone)
+[![CODECLIMATE](http://img.shields.io/codeclimate/github/rootslab/cocker.svg?style=flat)](https://codeclimate.com/github/rootslab/cocker)
+[![CODECLIMATE-TEST-COVERAGE](http://img.shields.io/codeclimate/coverage/github/rootslab/cocker.svg?style=flat)](https://codeclimate.com/github/rootslab/cocker)
 
-[![NPM VERSION](http://img.shields.io/npm/v/sermone.svg)](https://www.npmjs.org/package/sermone)
-[![TRAVIS CI BUILD](http://img.shields.io/travis/rootslab/sermone.svg)](http://travis-ci.org/rootslab/sermone)
-[![BUILD STATUS](http://img.shields.io/david/rootslab/sermone.svg)](https://david-dm.org/rootslab/sermone)
-[![DEVDEPENDENCY STATUS](http://img.shields.io/david/dev/rootslab/sermone.svg)](https://david-dm.org/rootslab/sermone#info=devDependencies)
+[![LICENSE](http://img.shields.io/badge/license-MIT-blue.svg?style=flat)](https://github.com/rootslab/cocker#mit-license)
+[![GITTIP](http://img.shields.io/gittip/rootslab.svg?style=flat)](https://www.gittip.com/rootslab/)
+[![NPM DOWNLOADS](http://img.shields.io/npm/dm/cocker.svg?style=flat)](http://npm-stat.com/charts.html?package=cocker)
 
-[![NPM GRAPH1](https://nodei.co/npm-dl/sermone.png)](https://nodei.co/npm/sermone/)
+[![NPM VERSION](http://img.shields.io/npm/v/cocker.svg?style=flat)](https://www.npmjs.org/package/cocker)
+[![TRAVIS CI BUILD](http://img.shields.io/travis/rootslab/cocker.svg?style=flat)](http://travis-ci.org/rootslab/cocker)
+[![BUILD STATUS](http://img.shields.io/david/rootslab/cocker.svg?style=flat)](https://david-dm.org/rootslab/cocker)
+[![DEVDEPENDENCY STATUS](http://img.shields.io/david/dev/rootslab/cocker.svg?style=flat)](https://david-dm.org/rootslab/cocker#info=devDependencies)
 
-[![NPM GRAPH2](https://nodei.co/npm/sermone.png?downloads=true&stars=true)](https://nodei.co/npm/sermone/)
+[![NPM GRAPH1](https://nodei.co/npm-dl/cocker.png)](https://nodei.co/npm/cocker/)
+
+[![NPM GRAPH2](https://nodei.co/npm/cocker.png?downloads=true&stars=true)](https://nodei.co/npm/cocker/)
+
 
 > For nodeJS versions < __v0.10.x__, check __v0.8.x__ branch.
 
