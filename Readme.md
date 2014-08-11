@@ -55,7 +55,7 @@ new Cocker( [ Object opt ] ) : Cocker
 ```javascript
 cocker_opt = {
  address : {
-    host : 'localhost'
+    host : '127.0.0.1'
     , port : 0
     , family : null
  }
