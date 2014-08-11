@@ -15,6 +15,7 @@ module.exports = function ( done ) {
         }
         , attempts = 0
         , ck = Cocker( opt )
+        , exit = typeof done === 'function' ? done : function () {}
         ;
 
     log( '- test re-connections with address:', ck.options.address );
@@ -40,7 +41,7 @@ module.exports = function ( done ) {
     ck.on( 'lost', function ( address ) {
         log( ' :lost' );
         assert.equal( attempts, trials );
-        done();
+        exit();
     } );
 
     ck.run();
