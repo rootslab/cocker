@@ -18,7 +18,7 @@ var log = console.log
 
 log( '- test re-connections with filepath: %s"', ck.options.path );
 
-log( '- check the number of connection retries with no server listening, should be %d.', trials );
+log( '- the number of connection retries with no server listening, should be %d.', trials );
 
 ck.on( 'online', function ( address ) {
     var emsg = 'Sorry, no server should running/listening on "' + opt.path + '".'
