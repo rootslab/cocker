@@ -57,7 +57,7 @@ cocker_opt = {
  address : {
     host : 'localhost'
     , port : 0
-    , family : 'IPv4'
+    , family : null
  }
  , path : undefined
  , connection : {

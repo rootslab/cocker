@@ -38,14 +38,12 @@
             , queue = []
             , qpos = 0
             , done = function () {
-                ++finished;
-                if ( finished === success ) {
-                    // log( '\n%s files found.', inspect( flen ) );
-                    // log( '%s files skipped.', inspect( flen - executed ) );
-                    log( '\n%s test files executed.', inspect( executed ) );
-                    log( '%s test files succeeded.', inspect( success ) );
-                    log( '%s test files failed.%s', inspect( fails ), fails ? '\n' + inspect( failed ) +'\n' : '\n' );
-                } else next();
+                if ( ++finished < success ) return next();
+                // log( '\n%s files found.', inspect( flen ) );
+                // log( '%s files skipped.', inspect( flen - executed ) );
+                log( '\n%s test files executed.', inspect( executed ) );
+                log( '%s test files succeeded.', inspect( success ) );
+                log( '%s test files failed.%s', inspect( fails ), fails ? '\n' + inspect( failed ) +'\n' : '\n' );
             }
             , next = function () {
                 if ( qpos < queue.length ) {
@@ -54,14 +52,15 @@
                 }
             }
             ;
-
+        // load file list
         for ( ; f < flen; fname = files[ ++f ] ) {
+            // load only test files
             if ( ~ fname.indexOf( '-test.js' ) ) {
                 ++executed;
                 // run script
                 try {
-                    ++success;
                     queue.push( fname, require( './' + fname ) );
+                    ++success;
                 } catch ( e ) {
                     ++fails;
                     if ( ! failed[ fname ] ) failed[ fname ] = [];
@@ -69,9 +68,8 @@
                 }
             }
         }
-
+        // start
         next();
-
     } );
 
 } )();
