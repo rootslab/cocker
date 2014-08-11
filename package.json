@@ -31,7 +31,7 @@
     "node" : ">=0.10.x"
   }
   , "scripts" : {
-    "test" : "bash test/run.sh"
+    "test" : "node test/run.js"
   }
   , "license" : "MIT"
   , "readmeFilename" : "Readme.md"

@@ -34,16 +34,34 @@
             , fails = 0
             , success = 0
             , executed = 0
+            , finished = 0
+            , queue = []
+            , qpos = 0
+            , done = function () {
+                ++finished;
+                if ( finished === success ) {
+                    // log( '\n%s files found.', inspect( flen ) );
+                    // log( '%s files skipped.', inspect( flen - executed ) );
+                    log( '\n%s test files executed.', inspect( executed ) );
+                    log( '%s test files succeeded.', inspect( success ) );
+                    log( '%s test files failed.%s', inspect( fails ), fails ? '\n' + inspect( failed ) +'\n' : '\n' );
+                } else next();
+            }
+            , next = function () {
+                if ( qpos < queue.length ) {
+                    log( '\n[ %s v%s - %s ]\n', mname, mver, inspect( queue[ qpos++ ] ) );
+                    queue[ qpos++ ]( done );
+                }
+            }
             ;
 
         for ( ; f < flen; fname = files[ ++f ] ) {
             if ( ~ fname.indexOf( '-test.js' ) ) {
                 ++executed;
                 // run script
-                log( '\n[ %s v%s - %s ]\n', mname, mver, inspect( fname ) );
                 try {
-                    require( './' + fname );
-                    ++success
+                    ++success;
+                    queue.push( fname, require( './' + fname ) );
                 } catch ( e ) {
                     ++fails;
                     if ( ! failed[ fname ] ) failed[ fname ] = [];
@@ -51,8 +69,9 @@
                 }
             }
         }
-        log( '\n%s test files executed.', inspect( executed ) );
-        log( '%s test files succeeded.', inspect( success ) );
-        log( '%s test files failed.%s', inspect( fails ), fails ? '\n' + inspect( failed ) +'\n' : '\n' );
+
+        next();
+
     } );
+
 } )();
