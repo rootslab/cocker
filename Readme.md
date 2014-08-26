@@ -16,7 +16,6 @@
 
 [![NPM GRAPH2](https://nodei.co/npm/cocker.png?downloads=true&stars=true)](https://nodei.co/npm/cocker/)
 
-
 > For nodeJS versions < __v0.10.x__, check __v0.8.x__ branch.
 
 ###Install
@@ -125,22 +124,22 @@ Cocker#bye( [ Buffer data | String message [, String encoding ] ] ) : undefined
 /*
  * Connection was established.
  */
-'online' : function ( Object address ) : undefined
+'online' : function ( Object address )
 
 /*
  * Connection is down ( on first 'close' event for the socket).
  */
-'offline' : function ( Object address ) : undefined
+'offline' : function ( Object address )
 
 /*
  * k is the number of current connection attempt.
  */
-'attempt' : function ( Number k, Object address, Number millis ) : undefined
+'attempt' : function ( Number k, Object address, Number millis )
 
 /*
  * Connection is definitively lost ( after opt.reconnection.trials times ).
  */
-'lost' : function ( Object address ) : undefined
+'lost' : function ( Object address )
 
 ```
 
@@ -166,3 +165,5 @@ Cocker#bye( [ Buffer data | String message [, String encoding ] ] ) : undefined
 > CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT,
 > TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE
 > SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+
+[![GA](https://ga-beacon.appspot.com/UA-53998692-1/cocker/Readme?pixel)](https://github.com/igrigorik/ga-beacon)
