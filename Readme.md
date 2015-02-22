@@ -1,20 +1,23 @@
 ###Cocker
 
-[![CODECLIMATE](http://img.shields.io/codeclimate/github/rootslab/cocker.svg?style=flat)](https://codeclimate.com/github/rootslab/cocker)
-[![CODECLIMATE-TEST-COVERAGE](http://img.shields.io/codeclimate/coverage/github/rootslab/cocker.svg?style=flat)](https://codeclimate.com/github/rootslab/cocker)
-
-[![LICENSE](http://img.shields.io/badge/license-MIT-blue.svg?style=flat)](https://github.com/rootslab/cocker#mit-license)
-[![GITTIP](http://img.shields.io/gittip/rootslab.svg?style=flat)](https://www.gittip.com/rootslab/)
-[![NPM DOWNLOADS](http://img.shields.io/npm/dm/cocker.svg?style=flat)](http://npm-stat.com/charts.html?package=cocker)
-
 [![NPM VERSION](http://img.shields.io/npm/v/cocker.svg?style=flat)](https://www.npmjs.org/package/cocker)
+[![CODACY BADGE](https://img.shields.io/codacy/b18ed7d95b0a4707a0ff7b88b30d3def.svg?style=flat)](https://www.codacy.com/public/44gatti/cocker)
+[![CODECLIMATE](http://img.shields.io/codeclimate/github/rootslab/cocker.svg?style=flat)](https://codeclimate.com/github/rootslab/cocker)
+[![CODECLIMATE-TEST-COVERAGE](https://img.shields.io/codeclimate/coverage/github/rootslab/cocker.svg?style=flat)](https://codeclimate.com/github/rootslab/cocker)
+[![LICENSE](http://img.shields.io/badge/license-MIT-blue.svg?style=flat)](https://github.com/rootslab/cocker#mit-license)
+
 [![TRAVIS CI BUILD](http://img.shields.io/travis/rootslab/cocker.svg?style=flat)](http://travis-ci.org/rootslab/cocker)
 [![BUILD STATUS](http://img.shields.io/david/rootslab/cocker.svg?style=flat)](https://david-dm.org/rootslab/cocker)
 [![DEVDEPENDENCY STATUS](http://img.shields.io/david/dev/rootslab/cocker.svg?style=flat)](https://david-dm.org/rootslab/cocker#info=devDependencies)
+[![NPM DOWNLOADS](http://img.shields.io/npm/dm/cocker.svg?style=flat)](http://npm-stat.com/charts.html?package=cocker)
 
 [![NPM GRAPH1](https://nodei.co/npm-dl/cocker.png)](https://nodei.co/npm/cocker/)
 
 [![NPM GRAPH2](https://nodei.co/npm/cocker.png?downloads=true&downloadRank=true&stars=true)](https://nodei.co/npm/cocker/)
+
+[![status](https://sourcegraph.com/api/repos/github.com/rootslab/cocker/.badges/status.png)](https://sourcegraph.com/github.com/rootslab/cocker)
+[![views](https://sourcegraph.com/api/repos/github.com/rootslab/cocker/.counters/views.png)](https://sourcegraph.com/github.com/rootslab/cocker)
+[![views 24h](https://sourcegraph.com/api/repos/github.com/rootslab/cocker/.counters/views-24h.png)](https://sourcegraph.com/github.com/rootslab/cocker)
 
 > For nodeJS versions < __v0.10.x__, check __v0.8.x__ branch.
 
@@ -145,7 +148,7 @@ Cocker#bye( [ Buffer data | String message [, String encoding ] ] ) : undefined
 
 ### MIT License
 
-> Copyright (c) 2012 &lt; Guglielmo Ferri : 44gatti@gmail.com &gt;
+> Copyright (c) 2015 &lt; Guglielmo Ferri : 44gatti@gmail.com &gt;
 
 > Permission is hereby granted, free of charge, to any person obtaining
 > a copy of this software and associated documentation files (the
