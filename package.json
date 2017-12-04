@@ -1,6 +1,6 @@
 {
     "name" : "cocker"
-  , "version" : "0.15.4"
+  , "version" : "0.16.0"
   , "description" : "Cocker, a socket module to handle reconnection retries."
   , "homepage" : "https://github.com/rootslab/cocker"
   , "private": false
@@ -23,7 +23,7 @@
     , "email": "44gatti@gmail.com"
   }
   , "dependencies" : {
-    "bolgia" : ">=2.7.4"
+    "bolgia" : ">=2.8.1"
   }
   , "devDependencies": {
   }
