@@ -1,3 +1,7 @@
+/*
+ * Cocker example, connect using a list of multiple hosts,
+ * through native Prmoises, using Cocker#prey and Cocker#die
+ */
 
 var log = console.log
     , assert = require( 'assert' )
@@ -42,12 +46,17 @@ log( '\n- execute prey on %d host(s):\n ', trials, alist );
 ck.on( 'attempt', ( v, addr ) => log( '- cocker: attempt (%d)', v, addr ) );
 
 ck.prey( alist )
+     // Promise resolved!
     .then( ( args ) => log( '- cocker: connected!', args ) )
+    // close connection
     .then( () => {
         log( '- cocker: now close connection..' );
         return ck.die();
     } )
+    // socket closed
     .then( ( args ) => log( '- cocker: socket closed', args ) )
+    // all attempts are unsuccessful, Primose will be rejected
     .catch( ( args ) => log( '-> rejected: %s\n-> error log:\n', args[ 0 ], args[ 1 ] ) )
+    // finally close server
     .then( () => server.close() )
     ;

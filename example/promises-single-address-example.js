@@ -1,4 +1,7 @@
-
+/*
+ * Cocker example, connect to a socket, through native Prmoises,
+ * using Cocker#hunt and Cocker#die
+ */
 var log = console.log
     , assert = require( 'assert' )
     , net = require( 'net' )
