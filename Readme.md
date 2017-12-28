@@ -237,8 +237,6 @@ Cocker.lapse : Number
 
 > See __[examples](example/)__.
 
-------------------------------------------------------------------------------
-
 ### MIT License
 
 > Copyright (c) 2013-present &lt; Guglielmo Ferri : 44gatti@gmail.com &gt;
