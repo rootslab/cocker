@@ -1,7 +1,7 @@
 {
     "name" : "cocker"
   , "version" : "1.0.0"
-  , "description" : "Cocker, a socket module to handle reconnection retries."
+  , "description" : "Cocker, a socket module to aggressively handle connection retries.."
   , "homepage" : "https://github.com/rootslab/cocker"
   , "private": false
   , "repository" : {
@@ -13,6 +13,7 @@
     , "net"
     , "connection"
     , "reconnection"
+    , "promise"
     , "cocker"
   ]
   , "author": {
