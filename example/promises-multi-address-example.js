@@ -13,6 +13,7 @@ var log = console.log
     , opt = {
         address : {
             port : port + trials
+            //, localAddress : '192.168.0.109'
         }
         , reconnection : {
             trials : trials

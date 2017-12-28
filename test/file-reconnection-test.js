@@ -5,9 +5,9 @@ module.exports = function ( done ) {
         , Cocker = require('../')
         , trials = 4
         , opt = {
-            path : '/tmp/a.redis.sock'
-            , address : {
+            address : {
                 port : 0
+                , path : '/tmp/a.redis.sock'
             }
             , reconnection : {
                 trials : trials
@@ -19,12 +19,12 @@ module.exports = function ( done ) {
         , exit = typeof done === 'function' ? done : function () {}
         ;
 
-    log( '- test re-connections with filepath: %s"', ck.options.path );
+    log( '- test re-connections with filepath: %s"', ck.options.address.path );
 
     log( '- the number of connection retries with no server listening, should be %d.', trials );
 
     ck.on( 'online', function ( address ) {
-        var emsg = 'Sorry, no server should running/listening on "' + opt.path + '".'
+        var emsg = 'Sorry, no server should running/listening on "' + opt.address.path + '".'
             ;
         log( ' :online' );
         throw new Error( emsg );
