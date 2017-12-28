@@ -72,25 +72,40 @@ new Cocker( [ Object options ] )
 
 #### Options
 
-> Cocker supports all net.Socket options
+> It accepts a configuration hash like:
 
 ```javascript
 {
- address : {
+ , path : undefined
+ , address : Object
+ , connection : Object
+ , reconnection : Object
+}
+```
+
+###### option.address
+```javascript
+{
     host : '127.0.0.1'
     , port : 0
     , family : null
  }
- , path : undefined
- , connection : {
+```
+
+###### option.connection
+```javascript
+ {
     encoding : null
     , keepAlive : true
     , timeout : 0
     , noDelay : true
     , allowHalfOpen : false
  }
- // Cocker custom options
- , reconnection : {
+```
+
+###### option.reconnection
+```javascript
+ {
     trials : 3
     , interval : 1000
     /*
@@ -101,7 +116,6 @@ new Cocker( [ Object options ] )
      */
     , factor : ( Math.sqrt( 5 ) + 1 ) / 2
  }
-}
 ```
 
 ### Properties
@@ -132,15 +146,15 @@ Cocker.lapse : Number
 
 > all the methods from net.Socket module are inherited.
 
-> Arguments between [ ] are optional.
+|            name          |                    description                    |
+|:-------------------------|:--------------------------------------------------|
+| __[die](#cockerdie)__    | `end the connection. (_Promise_)`                 |
+| __[hunt](#cockerhunt)__  | `connect to socket or attempting to. (_Promise_)` |
+| __[prey](#cocker#prey)__ | `connect using a list of hosts. (_Promise_)`      |
+| __[bye](#cockerbye)__    | `end the connection.`                             |
+| __[run](#cockerrun)__    | `connect to socket or attempting to.`             |
 
-|            name          |                   description     |
-|:-------------------------|:------------------------------------------------|
-| __[die](#cockerdie)__    | `end the connection. (Promise)`                 |
-| __[hunt](#cockerhunt)__  | `connect to socket or attempting to. (Promise)` |
-| __[prey](#cocker#prey)__ | `connect using a list of hosts. (Promise)`      |
-| __[bye](#cockerbye)__    | `end the connection.`                           |
-| __[run](#cockerrun)__    | `connect to socket or attempting to.`           |
+> Arguments between [ ] are optional.
 
 #### Cocker.die
 > ##### end the connection (without re-connecting).
@@ -152,17 +166,22 @@ Cocker.lapse : Number
 #### Cocker.hunt
 > ##### connect to socket or attempting to (k times).
 ```javascript
-// Promise will not be resolved until 'online', rejected after 'lost' event
-// it optionally accepts a cocker option object to reconfigure the socket.
+/*
+ * Promise will not be resolved until 'online', rejected after 'lost' event;
+ * it optionally accepts a cocker option object to reconfigure the socket.
+ */
 'hunt' : function ( [ Object cocker_options ] ) : Promise
 ```
 
 #### Cocker.prey
 > ##### try to connect until success, using a list of optional hosts/config.
 ```javascript
-// it recursively scan a list, using #hunt Promises. The #prey Promise will 
-// not be resolved until a connection will be made, definitively rejected when
-// no hosts had accepted one.
+/*
+ * it recursively scan a list, using #hunt Promises. The #prey Promise will 
+ * not be resolved until a connection will be made, definitively rejected when
+ * no hosts had accepted one. 
+ * Every host in the list should be an object like Cocker.options.address
+ */
 'prey' : function ( Array hosts ) : Promise
 ```
 
@@ -183,26 +202,26 @@ Cocker.lapse : Number
 
 > all the events from net.Socket module are inherited.
 
-##### !online, connection was established.
+##### !online: connection was established.
 ```javascript
 // when: soon after socket 'connect' event
 'online' : function ( Object address  )
 ```
 
-##### !offline, connection is down.
+##### !offline: connection is down.
 ```javascript
 // when: on the first 'close' event for the current socket
 'offline' : function ( Object address  )
 ```
 
-##### !attempt, current connection attempt.
+##### !attempt: current connection attempt.
 ```javascript
 // when: on every connection
 'attempt' : function ( Number t, Object address, Number lapse )
 ```
 
 
-##### !lost, no other attempts will be made, connection is definitively lost.
+##### !lost: no other attempts will be made, connection is definitively lost.
 ```javascript
 // when: after k connection attempts, socket will be definitively closed.
 'lost' : function ( Number t, Object address, Number lapse )
