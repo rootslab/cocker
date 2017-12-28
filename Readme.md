@@ -77,13 +77,13 @@ new Cocker( [ Object options ] )
 
 #### Options
 
-> __NOTE__: default options are listed
+> __NOTE__: default options are listed.
 
-> It accepts a configuration hash like:
+> It accepts a configuration hash/obj like:
 
 ```javascript
 {
- , path : undefined
+ , path : null
  , address : Object
  , connection : Object
  , reconnection : Object
