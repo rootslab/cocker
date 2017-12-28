@@ -36,8 +36,8 @@ __Cocker__, a socket module to __aggressively__ handle connection retries.
 - __[Events](#events)__
 - __[Examples](#examples)__
   - __[Native Promises](#native-promises)__ 
-    - __connection with hunt__
-    - __connection with prey__
+    - __[connection with hunt](#native-promises)__
+    - __[connection with prey](#native-promises)__
 - __[MIT License](#mit-license)__
 
 ------------------------------------------------------------------------------
