@@ -16,7 +16,28 @@
 
 [![NPM GRAPH](https://nodei.co/npm/cocker.png?downloads=true&downloadRank=true&stars=true)](https://nodei.co/npm/cocker/)
 
-> For nodeJS versions < __v0.10.x__, check __v0.8.x__ branch.
+__Cocker__, a socket module to __aggressively__ handle connection retries.
+
+> NOTE: It directly inherits from __net.Socket__. 
+
+### Table of Contents
+
+- __[Install](#install)__
+- __[Run Tests](#run-tests)__
+- __[Constructor](#constructor)__
+- __[Options](#options)__
+- __[Properties](#properties)__
+- __[Methods](#methods)__
+    - __[die](#cockerdie)__
+    - __[hunt](#cockerhunt)__
+    - __[prey](#cockerprey)__
+    - __[run](#cockerrun)__
+    - __[bye](#cockerbye)__    
+- __[Events](#events)__
+- __[Examples](#examples)__
+- __[MIT License](#mit-license)__
+
+------------------------------------------------------------------------------
 
 ### Install
 
@@ -27,7 +48,7 @@ $ npm install cocker [-g]
 > __require__:
 
 ```javascript
-var Cocker  = require( 'cocker' );
+const Cocker  = require( 'cocker' );
 ```
 
 ### Run Tests
@@ -39,20 +60,22 @@ $ npm test
 
 ### Constructor
 
-> Create an instance, the argument within [ ] is optional.
+> Arguments between [ ] are optional.
 
 ```javascript
-Cocker( [ Object opt ] ) : Cocker
-// or
-new Cocker( [ Object opt ] ) : Cocker
+Cocker( [ Object options ] )
+```
+> or
+```javascript
+new Cocker( [ Object options ] )
 ```
 
 #### Options
 
-> Cocker supports net.Socket options:
+> Cocker supports all net.Socket options
 
 ```javascript
-cocker_opt = {
+{
  address : {
     host : '127.0.0.1'
     , port : 0
@@ -83,65 +106,112 @@ cocker_opt = {
 
 ### Properties
 
-> Cocker custom properties:
+> __NOTE__: do not mess up with these properties.
 
+##### a property that holds the current configuration object
 ```javascript
-// a property that holds the initial config object:
 Cocker.options : Object
+```
 
-// current number of connection attempts
+##### current number of connection attempts
+```javascript
 Cocker.attempts : Number
+```
 
-// a flag, also useful to manually disable/re-enable/check reconnection-loop
+##### a flag useful to manually disable/enable/check reconnection-loop
+```javascript
 Cocker.lost : Boolean
+```
 
-// the last interval in millis between connection attempts.
+##### current lapse of millis between connection attempts
+```javascript
 Cocker.lapse : Number
 ```
 
 ### Methods
 
-> All the methods from net.Socket module are inherited.
+> all the methods from net.Socket module are inherited.
 
-> Arguments within [ ] are optional, '|' indicates multiple type for an argument.
+> Arguments between [ ] are optional.
 
+|            name          |                   description     |
+|:-------------------------|:------------------------------------------------|
+| __[die](#cockerdie)__    | `end the connection. (Promise)`                 |
+| __[hunt](#cockerhunt)__  | `connect to socket or attempting to. (Promise)` |
+| __[prey](#cocker#prey)__ | `connect using a list of hosts. (Promise)`      |
+| __[bye](#cockerbye)__    | `end the connection.`                           |
+| __[run](#cockerrun)__    | `connect to socket or attempting to.`           |
+
+#### Cocker.die
+> ##### end the connection (without re-connecting).
 ```javascript
-// connect to socket, optionally (re-)configuring the connection.
-Cocker#run( [ Object cocker_options ] ) : undefined
+// Promise will not be resolved until 'lost' event
+'die' : function ( [ Buffer | String data, [, String enc ] ] ) : Promise
+```
 
-// Use this method to end the connection without re-connecting.
-Cocker#bye( [ Buffer data | String message [, String encoding ] ] ) : undefined
+#### Cocker.hunt
+> ##### connect to socket or attempting to (k times).
+```javascript
+// Promise will not be resolved until 'online', rejected after 'lost' event
+// it optionally accepts a cocker option object to reconfigure the socket.
+'hunt' : function ( [ Object cocker_options ] ) : Promise
+```
+
+#### Cocker.prey
+> ##### try to connect until success, using a list of optional hosts/config.
+```javascript
+// it recursively scan a list, using #hunt Promises. The #prey Promise will 
+// not be resolved until a connection will be made, definitively rejected when
+// no hosts had accepted one.
+'prey' : function ( Array hosts ) : Promise
+```
+
+#### Cocker.bye
+> ##### end the connection (without re-connecting).
+```javascript
+'bye' : function ( [ Buffer | String data, [, String enc ] ] ) : undefined
+```
+
+#### Cocker.run
+> ##### connect to socket or attempting to (k times).
+```javascript
+// it optionally accepts a cocker option object to reconfigure the socket.
+'run' : function ( [ Object cocker_options ] ) : undefined
 ```
 
 ### Events
 
-> All the events from net.Socket module are inherited.
+> all the events from net.Socket module are inherited.
 
-> Cocker custom events:
-
+##### !online, connection was established.
 ```javascript
-
-/*
- * Connection was established.
- */
-'online' : function ( Object address )
-
-/*
- * Connection is down ( on first 'close' event for the socket).
- */
-'offline' : function ( Object address )
-
-/*
- * k is the number of current connection attempt.
- */
-'attempt' : function ( Number k, Object address, Number millis )
-
-/*
- * Connection is definitively lost ( after opt.reconnection.trials times ).
- */
-'lost' : function ( Object address )
-
+// when: soon after socket 'connect' event
+'online' : function ( Object address  )
 ```
+
+##### !offline, connection is down.
+```javascript
+// when: on the first 'close' event for the current socket
+'offline' : function ( Object address  )
+```
+
+##### !attempt, current connection attempt.
+```javascript
+// when: on every connection
+'attempt' : function ( Number t, Object address, Number lapse )
+```
+
+
+##### !lost, no other attempts will be made, connection is definitively lost.
+```javascript
+// when: after k connection attempts, socket will be definitively closed.
+'lost' : function ( Number t, Object address, Number lapse )
+```
+
+### Examples
+
+> See __[examples](example/)__.
+
 
 ### MIT License
 
