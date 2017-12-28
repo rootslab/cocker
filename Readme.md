@@ -90,11 +90,6 @@ new Cocker( [ Object options ] )
 }
 ```
 
-###### option.path: specify an IPC endpoint, like a unix domain socket
-```javascript
-
-```
-
 ###### option.address
 ```javascript
 {
@@ -102,7 +97,8 @@ new Cocker( [ Object options ] )
     , port : 0
     , family : null
     /*
-     * If a String is provided, the TCP-specific options above are ignored.
+     * Specify an IPC endpoint, like a unix domain socket, if a string is
+     * provided, the TCP-specific options above are ignored.
      * For further details, see "Identifying paths for IPC connections" in 
      * the /api/net section.
      */
