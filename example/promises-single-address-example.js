@@ -16,7 +16,6 @@ var log = console.log
     }
     , attempts = 0
     , ck = Cocker( opt )
-    , ctable = {}
     ;
     
 server.on( 'connection', ( v ) => {
