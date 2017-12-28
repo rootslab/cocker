@@ -58,6 +58,8 @@ $ cd cocker/
 $ npm test
 ```
 
+------------------------------------------------------------------------------
+
 ### Constructor
 
 > Arguments between [ ] are optional.
@@ -117,6 +119,7 @@ new Cocker( [ Object options ] )
     , factor : ( Math.sqrt( 5 ) + 1 ) / 2
  }
 ```
+------------------------------------------------------------------------------
 
 ### Properties
 
@@ -141,18 +144,19 @@ Cocker.lost : Boolean
 ```javascript
 Cocker.lapse : Number
 ```
+------------------------------------------------------------------------------
 
 ### Methods
 
 > all the methods from net.Socket module are inherited.
 
-|            name          |                    description                    |
-|:-------------------------|:--------------------------------------------------|
-| __[die](#cockerdie)__    | `end the connection. (_Promise_)`                 |
-| __[hunt](#cockerhunt)__  | `connect to socket or attempting to. (_Promise_)` |
-| __[prey](#cocker#prey)__ | `connect using a list of hosts. (_Promise_)`      |
-| __[bye](#cockerbye)__    | `end the connection.`                             |
-| __[run](#cockerrun)__    | `connect to socket or attempting to.`             |
+|            name          |                  description                    |
+|:-------------------------|:------------------------------------------------|
+| __[die](#cockerdie)__    | `end the connection. (Promise)`                 |
+| __[hunt](#cockerhunt)__  | `connect to socket or attempting to. (Promise)` |
+| __[prey](#cockerprey)__  | `connect using a list of hosts. (Promise)`      |
+| __[bye](#cockerbye)__    | `end the connection.`                           |
+| __[run](#cockerrun)__    | `connect to socket or attempting to.`           |
 
 > Arguments between [ ] are optional.
 
@@ -177,10 +181,10 @@ Cocker.lapse : Number
 > ##### try to connect until success, using a list of optional hosts/config.
 ```javascript
 /*
- * it recursively scan a list, using #hunt Promises. The #prey Promise will 
- * not be resolved until a connection will be made, definitively rejected when
- * no hosts had accepted one. 
- * Every host in the list should be an object like Cocker.options.address
+ * It recursively scan a list, using #hunt Promises. The #prey Promise will 
+ * not be resolved until a connection will be made, definitively rejected
+ * when no hosts had accepted one. 
+ * Every host in the list should be an object like Cocker.options.address.
  */
 'prey' : function ( Array hosts ) : Promise
 ```
@@ -197,6 +201,7 @@ Cocker.lapse : Number
 // it optionally accepts a cocker option object to reconfigure the socket.
 'run' : function ( [ Object cocker_options ] ) : undefined
 ```
+------------------------------------------------------------------------------
 
 ### Events
 
@@ -226,11 +231,13 @@ Cocker.lapse : Number
 // when: after k connection attempts, socket will be definitively closed.
 'lost' : function ( Number t, Object address, Number lapse )
 ```
+------------------------------------------------------------------------------
 
 ### Examples
 
 > See __[examples](example/)__.
 
+------------------------------------------------------------------------------
 
 ### MIT License
 
