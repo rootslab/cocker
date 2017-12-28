@@ -9,6 +9,7 @@ node_js:
 branches:
   only: 
   - master
+  - promises
 before_script: 
  - npm install -g istanbul
  - npm install -g codeclimate-test-reporter
