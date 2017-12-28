@@ -6,12 +6,9 @@ node_js:
   - "7"
   - "6"
   - "5"
-  - "4"
-  - "2"
-  - "1"
-  - "0.12"
-  - "0.11"
-  - "0.10"
+branches:
+  only: 
+  - master
 before_script: 
  - npm install -g istanbul
  - npm install -g codeclimate-test-reporter
@@ -20,3 +17,5 @@ after_script:
  - codeclimate-test-reporter < coverage/lcov.info
 env: 
  - CODECLIMATE_REPO_TOKEN=55244c733576e3036a37631ee4a769a55a01a10a0270c366025e3510dd26fb25   
+notifications:
+  email: false

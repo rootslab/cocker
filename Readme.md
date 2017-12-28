@@ -2,7 +2,7 @@
 
 [![NPM VERSION](http://img.shields.io/npm/v/cocker.svg?style=flat)](https://www.npmjs.org/package/cocker)
 [![CODACY BADGE](https://img.shields.io/codacy/b18ed7d95b0a4707a0ff7b88b30d3def.svg?style=flat)](https://www.codacy.com/public/44gatti/cocker)
-[![CODECLIMATE-TEST-COVERAGE](https://img.shields.io/codeclimate/coverage/github/rootslab/cocker.svg?style=flat)](https://codeclimate.com/github/rootslab/cocker)
+[![CODECLIMATE-TEST-COVERAGE](https://img.shields.io/codeclimate/c/rootslab/cocker.svg?style=flat)](https://codeclimate.com/github/rootslab/cocker)
 [![LICENSE](http://img.shields.io/badge/license-MIT-blue.svg?style=flat)](https://github.com/rootslab/cocker#mit-license)
 
 ![NODE VERSION](https://img.shields.io/node/v/cocker.svg)
@@ -11,7 +11,8 @@
 [![DEVDEPENDENCY STATUS](http://img.shields.io/david/dev/rootslab/cocker.svg?style=flat)](https://david-dm.org/rootslab/cocker#info=devDependencies)
 
 [![NPM MONTHLY](http://img.shields.io/npm/dm/cocker.svg?style=flat)](http://npm-stat.com/charts.html?package=cocker)
-![NPM YEARLY](https://img.shields.io/npm/dy/cocker.svg)
+[![NPM YEARLY](https://img.shields.io/npm/dy/cocker.svg)](http://npm-stat.com/charts.html?package=cocker)
+[![NPM TOTAL](https://img.shields.io/npm/dt/cocker.svg)](http://npm-stat.com/charts.html?package=cocker)
 
 [![NPM GRAPH](https://nodei.co/npm/cocker.png?downloads=true&downloadRank=true&stars=true)](https://nodei.co/npm/cocker/)
 

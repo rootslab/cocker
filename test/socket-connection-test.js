@@ -8,7 +8,7 @@ module.exports = function ( done ) {
         , trials = 6
         , opt = {
             address : {
-                port : 6379
+                port : 63800
             }
             , reconnection : {
                 trials : trials
@@ -49,7 +49,7 @@ module.exports = function ( done ) {
         exit();
     } );
 
-    server.listen( 6379 );
+    server.listen( 63800 );
 
     // force test coverage passing options
     ck.run( {
