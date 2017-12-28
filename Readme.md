@@ -35,6 +35,7 @@ __Cocker__, a socket module to __aggressively__ handle connection retries.
     - __[bye](#cockerbye)__    
 - __[Events](#events)__
 - __[Examples](#examples)__
+  - __[Promises](#promises)__ 
 - __[MIT License](#mit-license)__
 
 ------------------------------------------------------------------------------
@@ -247,6 +248,11 @@ Cocker.lapse : Number
 ------------------------------------------------------------------------------
 
 ### Examples
+
+#### Promises
+
+ > - __[connect](example/promises-single-address-example.js)__
+ > - __[connect with list](example/promises-multi-address-example.js)__
 
 > See __[examples](example/)__.
 
