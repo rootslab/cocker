@@ -8,7 +8,7 @@ var log = console.log
     , net = require( 'net' )
     , server = net.createServer()
     , Cocker = require( '../' )
-    , trials = 3
+    , trials = 4
     , port = 63800
     , opt = {
         address : {
@@ -43,18 +43,19 @@ for ( let i = 0; i < trials; ++i )
 
 log( '\n- execute prey on %d host(s):\n ', trials, alist );
 
-ck.on( 'attempt', ( v, addr ) => log( '- cocker: attempt (%d)', v, addr ) );
+ck.on( 'attempt', ( v, addr, lapse ) =>
+    log( '- cocker: (%d) attempt (%ds)', v, lapse / 1000, addr ) );
 
 ck.prey( alist )
      // Promise resolved!
-    .then( ( args ) => log( '- cocker: connected!', args ) )
+    .then( ( args ) => log( '- cocker: connected! (%d)', args[ 1 ], args[ 0 ] ) )
     // close connection
     .then( () => {
-        log( '- cocker: now close connection..' );
+        log( '\n- cocker: close connection..' );
         return ck.die();
     } )
     // socket closed
-    .then( ( args ) => log( '- cocker: socket closed', args ) )
+    .then( ( args ) => log( '- cocker: socket closed', args[ 0 ] ) )
     // all attempts are unsuccessful, Primose will be rejected
     .catch( ( args ) => log( '-> rejected: %s\n-> error log:\n', args[ 0 ], args[ 1 ] ) )
     // finally close server
