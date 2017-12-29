@@ -34,7 +34,7 @@ var log = console.log
     ;
 
 ck.on( 'online', ( v ) => log( '-> cocker: online!' ) );
-ck.on( 'offline', ( v, haderr ) => log( '-> cocker: offline! (err:%s)', haderr ) );
+ck.on( 'offline', ( v, haderr ) => log( '-> cocker: offline!' ) );
 ck.on( 'attempt', ( v ) => log( '-> cocker: attempt (%d)', v ) );
 ck.on( 'close', ( v ) => log( '-> cocker: close!' ) );
 ck.on( 'lost', ( v ) => log( '-> cocker: lost!' ) );
