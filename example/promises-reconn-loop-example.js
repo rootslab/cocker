@@ -97,4 +97,3 @@ server.on( 'listening', hunt );
 log( '\n- server: listening on port %d', port );
 
 server.listen( port );
-

@@ -31,6 +31,7 @@ __Cocker__, a socket module to __aggressively__ handle connection retries.
     - __[die](#cockerdie)__
     - __[hunt](#cockerhunt)__
     - __[prey](#cockerprey)__
+    - __[watch](#cockerwatch)__
     - __[run](#cockerrun)__
     - __[bye](#cockerbye)__    
 - __[Events](#events)__
@@ -167,6 +168,7 @@ Cocker.lapse : Number
 | __[die](#cockerdie)__    | `end the connection. (Promise)`                 |
 | __[hunt](#cockerhunt)__  | `connect to socket or attempting to. (Promise)` |
 | __[prey](#cockerprey)__  | `connect using a list of hosts. (Promise)`      |
+| __[watch](#cockerwatch)__| `re-connect after losing the current connection. (Promise)` |
 | __[bye](#cockerbye)__    | `end the connection.`                           |
 | __[run](#cockerrun)__    | `connect to socket or attempting to.`           |
 
@@ -183,8 +185,9 @@ Cocker.lapse : Number
 > ##### connect to socket or attempting to (k times).
 ```javascript
 /*
- * Promise will not be resolved until 'online', rejected after 'lost' event;
- * it optionally accepts a cocker option object to reconfigure the socket.
+ * Try to connect to a socket. Promise will not be resolved until 'online',
+ * rejected after 'lost' event; it optionally accepts a cocker option object
+ * to reconfigure the socket.
  */
 'hunt' : function ( [ Object cocker_options ] ) : Promise
 ```
@@ -200,6 +203,20 @@ Cocker.lapse : Number
  */
 'prey' : function ( Array hosts ) : Promise
 ```
+
+#### Cocker.watch
+> ##### try to re-connect after losing the current connection.
+```javascript
+/*
+ * When the current established connection is lost, it tries to reconnect.
+ * This Promise has the same resolution as for #hunt, the only difference is
+ * that this Promise was "registered" on socket disconnection, then it will be
+ * resolved/rejected only after capturing a 'lost' event from the current
+ * broken connection. See examples.
+ */
+'watch' : function ( [ Object cocker_options ] ) : Promise
+```
+
 
 #### Cocker.bye
 > ##### end the connection (without re-connecting).
@@ -251,6 +268,7 @@ Cocker.lapse : Number
 
  > - __[connection with hunt](example/promises-single-address-example.js)__
  > - __[connection with prey](example/promises-multi-address-example.js)__
+ > - __[re-connection with watch](example/promises-reconn-loop-example.js)__
 
 > See __[examples](example/)__.
 
