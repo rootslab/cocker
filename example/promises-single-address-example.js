@@ -34,15 +34,16 @@ server.on( 'close', () => log( '- server: I close!' ) );
 
 server.listen( 63800 );
 
-ck.on( 'attempt', ( v ) => log( '- cocker: attempt (%d)', v ) );
+ck.on( 'attempt', ( t, addr, lapse ) => 
+    log( '- cocker: (%d) attempt (%ds)', t, lapse / 1000 ) );
 
 ck.on( 'lost', ( v ) => log( '- cocker: lost!' ) );
 
 server.on( 'listening', function () {
 
-    ck.hunt().then( ( [ addr, t ] ) => {
+    ck.hunt().then( ( addr ) => {
 
-        log( '- cocker: (attempts %d) connected to', t, addr );
+        log( '- cocker: connected to', addr );
         
         log( '- cocker: now I will die!'  );
 
