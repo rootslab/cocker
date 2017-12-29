@@ -12,8 +12,7 @@ var log = console.log
     , port = 63800
     , opt = {
         address : {
-            port : port + trials
-            //, localAddress : '192.168.0.109'
+            port : 0
         }
         , reconnection : {
             trials : trials
@@ -36,7 +35,7 @@ server.on( 'connection', ( sock ) => {
 server.on( 'close', () => log( '\n- server: closed!\n' ) );
 server.on( 'listening', () => log( '\n- server: listening on', server.address(), '\n' ) );
 
-server.listen( port + trials );
+server.listen( port + trials - 1 );
 
 for ( let i = 0; i < trials; ++i )
     alist[ i ] = { host : '127.0.0.1', port : ++port }
