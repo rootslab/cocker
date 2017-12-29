@@ -62,3 +62,6 @@ module.exports = function ( done ) {
     } );
 
 };
+
+// single test execution with node
+if ( process.argv[ 1 ] === __filename ) module.exports();

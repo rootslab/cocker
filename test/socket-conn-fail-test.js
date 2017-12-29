@@ -47,3 +47,6 @@ module.exports = function ( done ) {
     ck.run();
 
 };
+
+// single test execution with node
+if ( process.argv[ 1 ] === __filename ) module.exports();

@@ -32,24 +32,6 @@ var log = console.log
         delay( lapse ).then( ( lapse ) => socket.destroy() );
         return lapse;
     }
-    , hunt = () => {
-        ck.hunt().then( ( args ) => {
-            log( '\n(hunt resolved) %d\n', now() );
-        }, ( args ) => {
-            log( '\n(hunt rejected) %d\n', now() );
-        } ). catch( ( what ) => {
-            log( '\n(hunt catched) %d\n', now(), what );
-        } );
-    }
-    , watch = () => {
-        ck.watch().then( ( args ) => {
-            log( '\n(watch resolved) %d\n', now() );
-        }, ( args ) => {
-            log( '\n(watch rejected) %d\n', now() );
-        } ).catch( ( what ) => {
-            log( '\n(watch catched) %d\n', now(), what );
-        } );
-    }
     // server connection handling
     , handle = ( s ) => {
 
@@ -75,6 +57,27 @@ var log = console.log
         // silly way to hold socket
         sock = s;
     }
+    // Promises 
+    , hunting = () => {
+        log( '\n(hunt pending) %d\n', now() );
+        return ck.hunt().then( ( args ) => {
+            log( '(hunt resolved) %d\n', now() );
+        }, ( args ) => {
+            log( '\n(hunt rejected) %d\n', now() );
+        } ). catch( ( what ) => {
+            log( '\n(hunt catched) %d\n', now(), what );
+        } );
+    }
+    , watching = () => {
+        log( '\n(watch pending) %d\n', now() );
+        return ck.watch().then( ( args ) => {
+            log( '(watch resolved) %d\n', now() );
+        }, ( args ) => {
+            log( '\n(watch rejected) %d\n', now() );
+        } ).catch( ( what ) => {
+            log( '\n(watch catched) %d\n', now(), what );
+        } );
+    }
     ;
 
 // log events for client
@@ -86,14 +89,16 @@ ck.on( 'lost', ( addr ) => log( '-> cocker: lost!' ) );
 // log close event for server
 server.on( 'close', () => log( '-> server: close!' ) );
 
-// watch loop 
-ck.on( 'online', watch );
+// watch connection 
+ck.on( 'online', watching );
 
-// handle socket, to simulate crash
+// start hunt before server is listening, or
+// simply connect when the server is listening:
+// server.on( 'listening', hunt );
+hunting();
+
+// handle socket for simulating crashes
 server.on( 'connection', handle );
-// simply connect when the server is listening
-server.on( 'listening', hunt );
-
-log( '\n- server: listening on port %d', port );
-
 server.listen( port );
+
+log( '-> server: listening on port %d', port );
