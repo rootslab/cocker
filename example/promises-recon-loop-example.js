@@ -30,26 +30,15 @@ var log = console.log
         let lapse = min + floor( random() * ( max - min + 1 ) )
             ;
         return delay( lapse ).then( () => socket.destroy() );
-    }
-    // secs to crash
-        /** /
-    , evts = [ 'online', 'offline', 'attempt', 'close', 'lost' ]
-    , logevent = ( emitter, events, msg ) => {
-        for ( let e = 0, fn = null; e < events.length; ++e )
-            ( fn = ( v ) => log( '- %s: %s!', msg, events[ e ], v ) ) &
-            emitter.on( events[ e ], fn );
-    }/**/
+    }    
     ;
 
-// logevent( ck, evts, 'cocker' );
-
-/**/
 ck.on( 'online', ( v ) => log( '-> cocker: online!' ) );
 ck.on( 'offline', ( v, haderr ) => log( '-> cocker: offline! (err:%s)', haderr ) );
 ck.on( 'attempt', ( v ) => log( '-> cocker: attempt (%d)', v ) );
 ck.on( 'close', ( v ) => log( '-> cocker: close!' ) );
 ck.on( 'lost', ( v ) => log( '-> cocker: lost!' ) );
-/**/
+
 
 log();
 
