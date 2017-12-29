@@ -28,12 +28,12 @@ __Cocker__, a socket module to __aggressively__ handle connection retries.
 - __[Options](#options)__
 - __[Properties](#properties)__
 - __[Methods](#methods)__
+    - __[bye](#cockerbye)__    
+    - __[run](#cockerrun)__
     - __[die](#cockerdie)__
     - __[hunt](#cockerhunt)__
     - __[prey](#cockerprey)__
     - __[watch](#cockerwatch)__
-    - __[run](#cockerrun)__
-    - __[bye](#cockerbye)__    
 - __[Events](#events)__
 - __[Examples](#examples)__
   - __[Native Promises](#native-promises)__ 
@@ -171,14 +171,27 @@ Cocker.lapse : Number
 
 |            name          |                  description                    |
 |:-------------------------|:------------------------------------------------|
+| __[bye](#cockerbye)__    | `end the connection.`                           |
+| __[run](#cockerrun)__    | `connect to socket or attempting to.`           |
 | __[die](#cockerdie)__    | `end the connection. (Promise)`                 |
 | __[hunt](#cockerhunt)__  | `connect to socket or attempting to. (Promise)` |
 | __[prey](#cockerprey)__  | `connect using a list of hosts. (Promise)`      |
 | __[watch](#cockerwatch)__| `re-connect after losing the current connection. (Promise)` |
-| __[bye](#cockerbye)__    | `end the connection.`                           |
-| __[run](#cockerrun)__    | `connect to socket or attempting to.`           |
 
 > Arguments between [ ] are optional.
+
+#### Cocker.bye
+> ##### end the connection (without re-connecting).
+```javascript
+'bye' : function ( [ Buffer | String data, [, String enc ] ] ) : undefined
+```
+
+#### Cocker.run
+> ##### connect to socket or attempting to (k times).
+```javascript
+// it optionally accepts a cocker option object to reconfigure the socket.
+'run' : function ( [ Object cocker_options ] ) : undefined
+```
 
 #### Cocker.die
 > ##### end the connection (without re-connecting).
@@ -223,19 +236,6 @@ Cocker.lapse : Number
 'watch' : function ( [ Object cocker_options ] ) : Promise
 ```
 
-
-#### Cocker.bye
-> ##### end the connection (without re-connecting).
-```javascript
-'bye' : function ( [ Buffer | String data, [, String enc ] ] ) : undefined
-```
-
-#### Cocker.run
-> ##### connect to socket or attempting to (k times).
-```javascript
-// it optionally accepts a cocker option object to reconfigure the socket.
-'run' : function ( [ Object cocker_options ] ) : undefined
-```
 ------------------------------------------------------------------------------
 
 ### Events
