@@ -16,7 +16,7 @@ var log = console.log
         }
         , reconnection : {
             trials : trials
-            , interval : 200
+            , interval : 100
         }
     }
     , attempts = 0
@@ -35,7 +35,7 @@ server.on( 'connection', ( sock ) => {
 server.on( 'close', () => log( '\n- server: closed!\n' ) );
 server.on( 'listening', () => log( '\n- server: listening on', server.address(), '\n' ) );
 
-server.listen( port + trials - 1 );
+server.listen( port + trials + 1);
 
 for ( let i = 0; i < trials; ++i )
     alist[ i ] = { host : '127.0.0.1', port : ++port }
@@ -52,6 +52,10 @@ ck.prey( alist )
     // close connection
     .then( () => {
         log( '\n- cocker: close connection..' );
+        log( 'attempt', ck.listeners( 'attempt' ) )
+        log( 'online', ck.listeners( 'online' ) )
+        log( 'lost', ck.listeners( 'lost' ) )
+        log( 'error', ck.listeners( 'error' ) )
         return ck.die();
     } )
     // socket closed
