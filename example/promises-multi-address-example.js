@@ -52,10 +52,6 @@ ck.prey( alist )
     // close connection
     .then( () => {
         log( '\n- cocker: close connection..' );
-        log( 'attempt', ck.listeners( 'attempt' ) )
-        log( 'online', ck.listeners( 'online' ) )
-        log( 'lost', ck.listeners( 'lost' ) )
-        log( 'error', ck.listeners( 'error' ) )
         return ck.die();
     } )
     // socket closed
