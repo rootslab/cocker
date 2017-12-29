@@ -24,7 +24,7 @@ var log = console.log
 server.on( 'connection', ( v ) => {
     let caddr = v.address()
         ;
-    log( '- server: new connection from', caddr );
+    log( '\n- server: new connection from', caddr );
     v.on( 'close', () =>
         log( '- server: closed connection!', caddr )
     );
@@ -36,21 +36,27 @@ server.listen( 63800 );
 
 ck.on( 'attempt', ( v ) => log( '- cocker: attempt (%d)', v ) );
 
-ck.hunt().then( ( [ addr, t ] ) => {
+ck.on( 'lost', ( v ) => log( '- cocker: lost!' ) );
 
-    log( '- cocker: (attempts %d) connected to', t, addr );
-    
-    log( '- cocker: now I will die!'  );
+server.on( 'listening', function () {
 
-    return ck.die();
+    ck.hunt().then( ( [ addr, t ] ) => {
 
-} ).then( ( addr ) => {
+        log( '- cocker: (attempts %d) connected to', t, addr );
+        
+        log( '- cocker: now I will die!'  );
 
-    log( '- cocker: disconnected from', addr );
+        return ck.die();
 
-    server.close();
+    } ).then( ( addr ) => {
 
-    log( '- cocker: reconnect to', ck.options.address );
-    return ck.hunt();
+        log( '- cocker: disconnected from', addr );
 
-} ).catch( ( reason ) => log( '- error catched:', reason ) );
+        server.close();
+
+        log( '- cocker: try to reconnect to:', ck.options.address );
+        return ck.hunt();
+
+    } ).catch( ( reason ) => log( '\n- error catched:', reason, '\n' ) );
+
+} );

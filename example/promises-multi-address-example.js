@@ -35,7 +35,8 @@ server.on( 'connection', ( sock ) => {
 server.on( 'close', () => log( '\n- server: closed!\n' ) );
 server.on( 'listening', () => log( '\n- server: listening on', server.address(), '\n' ) );
 
-server.listen( port + trials + 1);
+// server listen on the last resulting port
+server.listen( port + trials );
 
 for ( let i = 0; i < trials; ++i )
     alist[ i ] = { host : '127.0.0.1', port : ++port }
@@ -47,8 +48,8 @@ ck.on( 'attempt', ( v, addr, lapse ) =>
     log( '- cocker: (%d) attempt (%ds)', v, lapse / 1000, addr ) );
 
 ck.prey( alist )
-     // Promise resolved!
-    .then( ( args ) => log( '- cocker: connected! (%d)', args[ 1 ], args[ 0 ] ) )
+    // Promise resolved!
+    .then( ( args ) => log( '- cocker: connected!', args[ 0 ] ) )
     // close connection
     .then( () => {
         log( '\n- cocker: close connection..' );
@@ -57,7 +58,7 @@ ck.prey( alist )
     // socket closed
     .then( ( args ) => log( '- cocker: socket closed', args[ 0 ] ) )
     // all attempts are unsuccessful, Primose will be rejected
-    .catch( ( args ) => log( '-> rejected: %s\n-> error log:\n', args[ 0 ], args[ 1 ] ) )
+    .catch( ( what ) => log( '-> rejected: \n-> error log:\n', what ) )
     // finally close server
     .then( () => server.close() )
     ;
