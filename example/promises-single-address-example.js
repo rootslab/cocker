@@ -20,7 +20,7 @@ var log = console.log
     }
     , attempts = 0
     , ck = Cocker( opt )
-    handle = ( v ) => {
+    , handle = ( v ) => {
         let caddr = v.address()
             ;
         log( '- server: new connection from', caddr );
@@ -30,8 +30,7 @@ var log = console.log
     }
     ;
     
-
-// log events
+// log Cocker events
 ck.on( 'attempt', ( t, addr, lapse ) => 
     log( '- cocker: (%d) attempt (%ds)', t, lapse / 1000 ) );
 ck.on( 'offline', ( addr, haderr ) => log( '- cocker: offline!' ) );
