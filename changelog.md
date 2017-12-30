@@ -12,6 +12,13 @@ All notable changes to this project will be documented in this file.
  - Pass the configuration object/hash to the net.Socket super constructor
  - minor fixes..
 
+### Added
+ - Example for infinite loop with #hunt and #watch Promises
+
+### Changed
+ - #hunt #watch #prey Promise receives always an array. When the Promise
+   is rejected, the Array contains all the errors collected along the chain.
+
 ------------------------------------------------------------------------------
 
 ## [1.0.2] - 2017-12-30

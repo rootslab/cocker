@@ -42,6 +42,7 @@ __Cocker__, a socket module to __aggressively__ handle connection retries.
     - __[connection with hunt](#native-promises)__
     - __[connection with prey (through an address list)](#native-promises)__
     - __[re-connection loop with watch](#native-promises)__
+    - __[infinite re-connection loop with hunt and watch](#native-promises)__
 - __[MIT License](#mit-license)__
 
 ------------------------------------------------------------------------------
@@ -300,6 +301,7 @@ Cocker.lapse : Number
   - __[connection with hunt](example/promises-single-address-example.js)__
   - __[connection with prey (through an address list)](example/promises-multi-address-example.js)__
   - __[re-connection loop with watch](example/promises-reconn-loop-example.js)__
+  - __[infinite re-connection loop with hunt and watch](#example/promises-reconn-infinite-loop-example.js)__
 
 > See __[examples](example/)__.
 

@@ -22,18 +22,18 @@ var log = console.log
     , attempts = 0
     , ck = Cocker( opt )
     , alist = []
+    , handle = ( sock ) => {
+        let addr = sock.address()
+            ;
+        log( '- server: new socket connection', addr );
+        sock.on( 'close', ( args ) => log( '- server: socket closed', addr ) );
+
+    }
     ;
     
-server.on( 'connection', ( sock ) => {
-    let addr = sock.address()
-        ;
-    log( '- server: new socket connection', addr );
-    sock.on( 'close', ( args ) => log( '- server: socket closed', addr ) );
-
-} );
-
 server.on( 'close', () => log( '- server: closed!' ) );
 server.on( 'listening', () => log( '\n- server: listening on', server.address() ) );
+server.on( 'connection', handle );
 
 // server listen on the last resulting port
 server.listen( port + trials );
@@ -42,12 +42,13 @@ for ( let i = 0; i < trials; ++i )
     alist[ i ] = { host : '127.0.0.1', port : ++port }
     ;
 
-log( '\n- execute prey on %d host(s):\n ', trials, alist );
-
+// log Cocker events
 ck.on( 'attempt', ( v, addr, lapse ) =>
     log( '- cocker: (%d) attempt (%ds)', v, lapse / 1000, addr ) );
 ck.on( 'offline', ( addr, haderr ) => log( '- cocker: offline!' ) );
 ck.on( 'lost', ( v ) => log( '- cocker: lost!' ) );
+
+log( '\n- execute prey on %d host(s):\n ', trials, alist );
 
 ck.prey( alist )
     // Promise resolved!
