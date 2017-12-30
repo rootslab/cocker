@@ -16,8 +16,11 @@ All notable changes to this project will be documented in this file.
 
 ## [1.0.0] - 2017-12-29
 
-### Changed
+### Added
  - added #hunt #die #prey #watch methods (native Promises)
  - drop support for node versions <= v6.0.0
+
+### Changed
+ - moved options.path to options.address.path
  
 ------------------------------------------------------------------------------
