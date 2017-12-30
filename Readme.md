@@ -120,10 +120,10 @@ new Cocker( [ Object options ] )
 ###### option.address (additional options for net.Socket)
 ```javascript
 {   
-    // the socket should connect from:
-     localAddress : undefined
+    // should connect from
+    localAddress : undefined
     , localPort: undefined
-    // custom lookup function and hints
+    // custom lookup and hints
     , lookup : dns.lookup 
     , hints : 0
  }
