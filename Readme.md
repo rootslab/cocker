@@ -300,8 +300,8 @@ Cocker.lapse : Number
 
   - __[connection with hunt](example/promises-single-address-example.js)__
   - __[connection with prey (through an address list)](example/promises-multi-address-example.js)__
-  - __[re-connection loop with watch](example/promises-reconn-loop-example.js)__
-  - __[infinite re-connection loop with hunt and watch](example/promises-reconn-infinite-loop-example.js)__
+  - __[looping with watch](example/promises-reconn-loop-example.js)__
+  - __[looping (indefinitevly) with hunt and watch](example/promises-reconn-infinite-loop-example.js)__
 
 > See __[examples](example/)__.
 
