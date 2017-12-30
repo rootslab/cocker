@@ -37,11 +37,11 @@ __Cocker__, a socket module to __aggressively__ handle connection retries.
 - __[Events](#events)__
 - __[Examples](#examples)__
   - __[Simple Mode](#simple-mode)__ 
-    - __[re-connection loop with run](#reconnection-loop-with-run)__
+    - __[re-connection loop with run](#simple-mode)__
   - __[Native Promises](#native-promises)__
     - __[connection with hunt](#native-promises)__
     - __[connection with prey](#native-promises)__
-    - __[re-connection loop with watch](#reconnection-loop-with-watch)__
+    - __[re-connection loop with watch](#native-promises)__
 - __[MIT License](#mit-license)__
 
 ------------------------------------------------------------------------------
@@ -273,15 +273,15 @@ Cocker.lapse : Number
 
 ### Examples
 
-#### Simple Mode
+> #### Simple Mode
 
- > - __[re-connection loop with run](example/run-reconn-loop-example.js)__
+ - __[re-connection loop with run](example/run-reconn-loop-example.js)__
 
-#### Native Promises
+> #### Native Promises
 
- > - __[connection with hunt](example/promises-single-address-example.js)__
- > - __[connection with prey](example/promises-multi-address-example.js)__
- > - __[re-connection loop with watch](example/promises-reconn-loop-example.js)__
+  - __[connection with hunt](example/promises-single-address-example.js)__
+  - __[connection with prey](example/promises-multi-address-example.js)__
+  - __[re-connection loop with watch](example/promises-reconn-loop-example.js)__
 
 > See __[examples](example/)__.
 
