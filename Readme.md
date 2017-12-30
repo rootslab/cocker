@@ -89,8 +89,9 @@ new Cocker( [ Object options ] )
 
 > __NOTE__: default options are listed.
 
-> It accepts a configuration hash/obj like:
+> It accepts a configuration hash/object:
 
+###### option
 ```javascript
 {
  , path : null
@@ -100,7 +101,7 @@ new Cocker( [ Object options ] )
 }
 ```
 
-###### option.address
+###### option.address (default)
 ```javascript
 {
     host : '127.0.0.1'
@@ -113,6 +114,21 @@ new Cocker( [ Object options ] )
      * the /api/net section.
      */
     , path : null
+ }
+```
+
+###### option.address (additional options for net.Socket)
+```javascript
+{   
+    // ...
+    // local address the socket should connect from.
+     localAddress : undefined 
+    // local port the socket should connect from.
+    , localPort: undefined
+    // optional dns.lookup() hints.
+    , hints : 0
+    // custom lookup function. default is dns.lookup()
+    , lookup : lookup 
  }
 ```
 
