@@ -6,6 +6,14 @@ All notable changes to this project will be documented in this file.
 
 ------------------------------------------------------------------------------
 
+## [1.0.3] - 2017-12-30
+
+### Fixed 
+ - Pass the configuration object/hash to the net.Socket super constructor
+ - minor fixes..
+
+------------------------------------------------------------------------------
+
 ## [1.0.2] - 2017-12-30
 
 ### Fixed 
