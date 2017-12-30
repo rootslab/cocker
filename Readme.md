@@ -273,11 +273,11 @@ Cocker.lapse : Number
 
 ### Examples
 
-> #### Simple Mode
+#### Simple Mode
 
  - __[re-connection loop with run](example/run-reconn-loop-example.js)__
 
-> #### Native Promises
+#### Native Promises
 
   - __[connection with hunt](example/promises-single-address-example.js)__
   - __[connection with prey](example/promises-multi-address-example.js)__
