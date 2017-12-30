@@ -23,6 +23,7 @@ var log = console.log
     , attempts = 0
     , ck = Cocker( opt )
     , sock = null
+    // utils
     , delay = ( t ) => new Promise ( ( solve ) => setTimeout( solve, t ) )
     , destroy = ( socket, min, max ) => {
         min = + min || 0;
@@ -60,23 +61,25 @@ var log = console.log
     // Promises 
     , hunting = () => {
         log( '\n(hunt pending) %d\n', now() );
-        return ck.hunt().then( ( args ) => {
-            log( '(hunt resolved) %d\n', now() );
-        }, ( args ) => {
-            log( '\n(hunt rejected) %d\n', now() );
-        } ). catch( ( what ) => {
-            log( '\n(hunt catched) %d\n', now(), what );
-        } );
+        return ck.hunt()
+            .then( ( args ) => {
+                log( '(hunt resolved) %d\n', now() );
+            }, ( args ) => {
+                log( '\n(hunt rejected) %d\n', now() );
+            } ). catch( ( what ) => {
+                log( '\n(hunt catched) %d\n', now(), what );
+            } );
     }
     , watching = () => {
         log( '\n(watch pending) %d\n', now() );
-        return ck.watch().then( ( args ) => {
-            log( '(watch resolved) %d\n', now() );
-        }, ( args ) => {
-            log( '\n(watch rejected) %d\n', now() );
-        } ).catch( ( what ) => {
-            log( '\n(watch catched) %d\n', now(), what );
-        } );
+        return ck.watch()
+            .then( ( args ) => {
+                log( '(watch resolved) %d\n', now() );
+            }, ( args ) => {
+                log( '\n(watch rejected) %d\n', now() );
+            } ).catch( ( what ) => {
+                log( '\n(watch catched) %d\n', now(), what );
+            } );
     }
     ;
 
@@ -92,7 +95,7 @@ server.on( 'close', () => log( '-> server: close!' ) );
 // watch connection 
 ck.on( 'online', watching );
 
-// start hunt before server is listening, or
+// start #hunt before the server is listening, or
 // simply connect when the server is listening:
 // server.on( 'listening', hunt );
 hunting();
