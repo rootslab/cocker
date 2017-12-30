@@ -266,26 +266,25 @@ Cocker.lapse : Number
 
 ##### !online: connection was established.
 ```javascript
-// when: soon after socket 'connect' event
+// when: soon after socket !connect event
 'online' : function ( Object address  )
 ```
 
 ##### !offline: connection is down.
 ```javascript
-// when: on the first 'close' event for the current socket
+// when: on the first !close event for the current socket
 'offline' : function ( Object address  )
 ```
 
 ##### !attempt: current connection attempt.
 ```javascript
-// when: on every connection
+// when: after !offline, on every connection attempt, until !lost or !online 
 'attempt' : function ( Number t, Object address, Number lapse )
 ```
 
-
 ##### !lost: no other attempts will be made, connection is definitively lost.
 ```javascript
-// when: after k connection attempts, socket will be definitively closed.
+// when: soon before the last !close event.
 'lost' : function ( Number t, Object address, Number lapse )
 ```
 ------------------------------------------------------------------------------

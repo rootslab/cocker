@@ -59,6 +59,7 @@ ck.on( 'online', ( addr, haderr ) => log( '- cocker: online!' ) );
 ck.on( 'offline', ( addr, haderr ) => log( '- cocker: offline!' ) );
 ck.on( 'lost', ( v ) => log( '- cocker: lost!' ) );
 ck.on( 'connect', ( v ) => log( '- cocker: connect!' ) );
+ck.on( 'close', ( v ) => log( '- cocker: close!' ) );
 
 // log server events
 server.on( 'listening', ( v ) => log( '- server listening on:', server.address() ) );
@@ -87,7 +88,7 @@ delay( 8000 ).then( () =>
 delay( 14000 ).then( () =>
     server.listen( port )
     // uncomment this line to stop looping (Promise rejection)
-    & ( stop = true )
+    // & ( stop = true )
     );
 
 delay( 22000 ).then( () =>
