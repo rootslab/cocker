@@ -190,13 +190,13 @@ Cocker.lapse : Number
 
 > all the methods from net.Socket module are inherited.
 
-|            name          |                  description                    |
-|:-------------------------|:------------------------------------------------|
-| __[bye](#cockerbye)__    | `end the connection.`                           |
-| __[run](#cockerrun)__    | `connect to a socket or attempting to.`         |
-| __[die](#cockerdie)__    | `end the connection. (Promise)`                 |
-| __[hunt](#cockerhunt)__  | `connect to asocket or attempting to. (Promise)`|
-| __[prey](#cockerprey)__  | `connect using a list of hosts. (Promise)`      |
+|            name          |                   description                    |
+|:-------------------------|:-------------------------------------------------|
+| __[bye](#cockerbye)__    | `end the connection.`                            |
+| __[run](#cockerrun)__    | `connect to a socket or attempting to.`          |
+| __[die](#cockerdie)__    | `end the connection. (Promise)`                  |
+| __[hunt](#cockerhunt)__  | `connect to a socket or attempting to. (Promise)`|
+| __[prey](#cockerprey)__  | `connect using a list of hosts. (Promise)`       |
 | __[watch](#cockerwatch)__| `re-connect after losing the current connection. (Promise)` |
 
 > Arguments between [ ] are optional.
