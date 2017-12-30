@@ -27,13 +27,13 @@ var log = console.log
 server.on( 'connection', ( sock ) => {
     let addr = sock.address()
         ;
-    log( '\n- server: new socket connection', addr, '\n' );
-    sock.on( 'close', ( args ) => log( '\n- server: socket closed', addr, '\n' ) );
+    log( '- server: new socket connection', addr );
+    sock.on( 'close', ( args ) => log( '- server: socket closed', addr ) );
 
 } );
 
-server.on( 'close', () => log( '\n- server: closed!\n' ) );
-server.on( 'listening', () => log( '\n- server: listening on', server.address(), '\n' ) );
+server.on( 'close', () => log( '- server: closed!' ) );
+server.on( 'listening', () => log( '\n- server: listening on', server.address() ) );
 
 // server listen on the last resulting port
 server.listen( port + trials );
@@ -46,13 +46,15 @@ log( '\n- execute prey on %d host(s):\n ', trials, alist );
 
 ck.on( 'attempt', ( v, addr, lapse ) =>
     log( '- cocker: (%d) attempt (%ds)', v, lapse / 1000, addr ) );
+ck.on( 'offline', ( addr, haderr ) => log( '- cocker: offline!' ) );
+ck.on( 'lost', ( v ) => log( '- cocker: lost!' ) );
 
 ck.prey( alist )
     // Promise resolved!
     .then( ( args ) => log( '- cocker: connected!', args[ 0 ] ) )
     // close connection
     .then( () => {
-        log( '\n- cocker: close connection..' );
+        log( '- cocker: close connection..' );
         return ck.die();
     } )
     // socket closed

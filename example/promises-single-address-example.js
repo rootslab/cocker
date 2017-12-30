@@ -8,9 +8,10 @@ var log = console.log
     , server = net.createServer()
     , Cocker = require( '../' )
     , trials = 4
+    , port = 63800
     , opt = {
         address : {
-            port : 63800
+            port : port
         }
         , reconnection : {
             trials : trials
@@ -19,45 +20,45 @@ var log = console.log
     }
     , attempts = 0
     , ck = Cocker( opt )
+    handle = ( v ) => {
+        let caddr = v.address()
+            ;
+        log( '- server: new connection from', caddr );
+        v.on( 'close', () =>
+            log( '- server: closed connection!', caddr )
+        );
+    }
     ;
     
-server.on( 'connection', ( v ) => {
-    let caddr = v.address()
-        ;
-    log( '\n- server: new connection from', caddr );
-    v.on( 'close', () =>
-        log( '- server: closed connection!', caddr )
-    );
-} );
 
-server.on( 'close', () => log( '- server: I close!' ) );
-
-server.listen( 63800 );
-
+// log events
 ck.on( 'attempt', ( t, addr, lapse ) => 
     log( '- cocker: (%d) attempt (%ds)', t, lapse / 1000 ) );
-
+ck.on( 'offline', ( addr, haderr ) => log( '- cocker: offline!' ) );
 ck.on( 'lost', ( v ) => log( '- cocker: lost!' ) );
 
-server.on( 'listening', function () {
+// run hunt before server is listening
+ck.hunt().then( ( addr ) => {
 
-    ck.hunt().then( ( addr ) => {
+    log( '- cocker: connected to', addr );
+    
+    log( '- cocker: now I will die!'  );
 
-        log( '- cocker: connected to', addr );
-        
-        log( '- cocker: now I will die!'  );
+    return ck.die();
 
-        return ck.die();
+} ).then( ( addr ) => {
 
-    } ).then( ( addr ) => {
+    log( '- cocker: disconnected from', addr );
 
-        log( '- cocker: disconnected from', addr );
+    server.close();
 
-        server.close();
+    log( '- cocker: try to reconnect to:', ck.options.address );
+    return ck.hunt();
 
-        log( '- cocker: try to reconnect to:', ck.options.address );
-        return ck.hunt();
+} ).catch( ( reason ) => log( '\n- error catched:', reason, '\n' ) );
 
-    } ).catch( ( reason ) => log( '\n- error catched:', reason, '\n' ) );
-
-} );
+server.on( 'close', () => log( '- server: I close!' ) );
+// handle socket connection
+server.on( 'connection', handle );
+// listen
+server.listen( port );
