@@ -193,9 +193,9 @@ Cocker.lapse : Number
 |            name          |                  description                    |
 |:-------------------------|:------------------------------------------------|
 | __[bye](#cockerbye)__    | `end the connection.`                           |
-| __[run](#cockerrun)__    | `connect to socket or attempting to.`           |
+| __[run](#cockerrun)__    | `connect to a socket or attempting to.`         |
 | __[die](#cockerdie)__    | `end the connection. (Promise)`                 |
-| __[hunt](#cockerhunt)__  | `connect to socket or attempting to. (Promise)` |
+| __[hunt](#cockerhunt)__  | `connect to asocket or attempting to. (Promise)`|
 | __[prey](#cockerprey)__  | `connect using a list of hosts. (Promise)`      |
 | __[watch](#cockerwatch)__| `re-connect after losing the current connection. (Promise)` |
 
@@ -208,7 +208,7 @@ Cocker.lapse : Number
 ```
 
 #### Cocker.run
-> ##### connect to socket or attempting to (k times).
+> ##### connect to a socket or attempting to (k times).
 ```javascript
 // it optionally accepts a cocker option object to reconfigure the socket.
 'run' : function ( [ Object cocker_options ] ) : undefined
@@ -222,7 +222,7 @@ Cocker.lapse : Number
 ```
 
 #### Cocker.hunt
-> ##### connect to socket or attempting to (k times).
+> ##### connect to a socket or attempting to (k times).
 ```javascript
 /*
  * Try to connect to a socket. Promise will not be resolved until 'online',
