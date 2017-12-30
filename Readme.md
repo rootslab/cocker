@@ -170,12 +170,17 @@ Cocker.options : Object
 Cocker.attempts : Number
 ```
 
-##### a flag useful to manually disable/enable/check reconnection-loop
+##### a flag to signal the current status of the connection
 ```javascript
 Cocker.lost : Boolean
 ```
 
-##### current lapse of millis between connection attempts
+##### a flag used to disable reconnection (after #hunt Promise resolution)
+```javascript
+Cocker.stop : Boolean
+```
+
+##### current lapse of time (to wait) until the next connection attempt
 ```javascript
 Cocker.lapse : Number
 ```
