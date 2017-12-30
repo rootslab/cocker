@@ -204,7 +204,7 @@ Cocker.lapse : Number
 #### Cocker.bye
 > ##### end the connection (without re-connecting).
 ```javascript
-'bye' : function ( [ Buffer | String data, [, String enc ] ] ) : undefined
+'bye' : function ( [ Buffer | String data [, String enc ] ] ) : undefined
 ```
 
 #### Cocker.run
@@ -218,7 +218,7 @@ Cocker.lapse : Number
 > ##### end the connection (without re-connecting).
 ```javascript
 // Promise will not be resolved until 'lost' event
-'die' : function ( [ Buffer | String data, [, String enc ] ] ) : Promise
+'die' : function ( [ Buffer | String data [, String enc ] ] ) : Promise
 ```
 
 #### Cocker.hunt
