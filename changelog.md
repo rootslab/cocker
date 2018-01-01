@@ -6,7 +6,7 @@ All notable changes to this project will be documented in this file.
 
 ------------------------------------------------------------------------------
 
-## [1.0.4] - 2018-01-01
+## [1.0.5] - 2018-01-01
 
 ### Fixed 
  - docs, path option property was moved into address config hash
