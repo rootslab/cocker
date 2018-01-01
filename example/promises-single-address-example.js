@@ -1,6 +1,7 @@
 /*
  * Cocker example, connect to a socket, through native Prmoises,
- * using Cocker#hunt and Cocker#die
+ * using Cocker#hunt and Cocker#die. When the last #hunt call fails
+ * to connect, Promise will be rejected (and catched).
  */
 var log = console.log
     , assert = require( 'assert' )
@@ -31,9 +32,11 @@ var log = console.log
     ;
     
 // log Cocker events
+ck.on( 'online', ( addr ) => log( '-> cocker: online!' ) );
 ck.on( 'attempt', ( t, addr, lapse ) => 
     log( '- cocker: (%d) attempt (%ds)', t, lapse / 1000 ) );
 ck.on( 'offline', ( addr, haderr ) => log( '- cocker: offline!' ) );
+ck.on( 'close', ( v ) => log( '- cocker: close!' ) );
 ck.on( 'lost', ( v ) => log( '- cocker: lost!' ) );
 
 // run hunt before server is listening

@@ -87,8 +87,8 @@ var log = console.log
 ck.on( 'online', ( addr ) => log( '-> cocker: online!' ) );
 ck.on( 'offline', ( addr, haderr ) => log( '-> cocker: offline!' ) );
 ck.on( 'attempt', ( t, addr, lapse ) => log( '-> cocker: (%d) attempt (%ds)', t, lapse / 1000 ) );
-ck.on( 'close', ( v ) => log( '-> cocker: close!' ) );
-ck.on( 'lost', ( addr ) => log( '-> cocker: lost!' ) );
+ck.on( 'close', ( v ) => log( '- cocker: close!' ) );
+ck.on( 'lost', ( addr ) => log( '- cocker: lost!' ) );
 // log close event for server
 server.on( 'close', () => log( '-> server: close!' ) );
 

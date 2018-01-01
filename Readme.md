@@ -95,7 +95,6 @@ new Cocker( [ Object options ] )
 ###### option
 ```javascript
 {
- , path : null
  , address : Object
  , connection : Object
  , reconnection : Object
